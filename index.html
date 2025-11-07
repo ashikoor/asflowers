@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As Flowers — Literary Magazine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+         <div class="logo-container">
+             <img src="../designs/WhatsApp Image 2025-11-07 at 18.37.14_153caa54.jpg" alt="As Flowers Logo" class="logo-image">
+             <span class="logo-text">As Flowers</span>
+         </div>
+            <div class="nav-menu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#current-issue" class="nav-link">Current Issue</a>
+                <a href="#archives" class="nav-link">Archives</a>
+                <a href="#submissions" class="nav-link">Submit</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Where Words Bloom</h1>
+        <p class="hero-subtitle">A journal that helps writings bloom af(as flowers)</p>
+        <a href="#submissions" class="cta-button">Submit Your Work</a>
+    </div>
+    <div class="hero-image">
+        <div class="image-container">
+            <img src="https://i.pinimg.com/736x/8c/aa/8c/8caa8ccd038fd36872fac5d1d044c112.jpg" alt="Beautiful pink flower" class="hero-flower">
+            <div class="overlay"></div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 6rem 2rem;
+        min-height: 90vh;
+    }
+
+    .hero-content {
+        padding: 2rem 0;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-title {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        line-height: 1.1;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        font-weight: 400;
+        max-width: 90%;
+        line-height: 1.7;
+    }
+
+    .hero-image {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        aspect-ratio: 3/4;
+        height: 100%;
+        max-height: 600px;
+        animation: fadeInRight 0.8s ease-out 0.2s backwards;
+    }
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-flower {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-image:hover .hero-flower {
+        transform: scale(1.08);
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%);
+        mix-blend-mode: multiply;
+        transition: opacity 0.5s ease;
+    }
+
+    .hero-image:hover .overlay {
+        opacity: 0.9;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .cta-button:hover {
+        background: transparent;
+        color: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 1024px) {
+        .hero {
+            grid-template-columns: 1fr;
+            text-align: center;
+            padding: 4rem 2rem;
+            min-height: auto;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            order: 2;
+            padding: 2rem 0 0;
+        }
+
+        .hero-subtitle {
+            margin: 0 auto 2rem;
+        }
+
+        .hero-image {
+            order: 1;
+            max-width: 500px;
+            margin: 0 auto;
+            aspect-ratio: 4/3;
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+    <!-- Current Issue -->
+    <section id="current-issue" class="current-issue">
+        <div class="section-header">
+            <h2>Coming Soon in January 2026</h2>
+            <p class="issue-subtitle">Initial Blooms</p>
+            <p class="issue-description">Our inaugural issue, celebrating new voices and fresh perspectives in literature.</p>
+        </div>
+        
+        <div class="coming-soon" style="text-align: center; padding: 4rem 2rem;">
+            <div style="max-width: 600px; margin: 0 auto;">
+                <h3 style="margin-bottom: 1.5rem;">Be Part of Our First Issue</h3>
+                <p style="margin-bottom: 2rem; color: var(--text-secondary);">
+                    We're currently accepting submissions for our debut issue. Share your poetry, fiction, and creative nonfiction with us.
+                </p>
+                <button onclick="window.open('https://tally.so/r/2E8L6L', '_blank')" class="submit-button">
+                    Submit Your Work
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archives -->
+    <section id="archives" class="archives">
+        <div class="section-header">
+            <h2>Our Story Begins</h2>
+            <p class="subtitle">A new chapter in literary expression</p>
+        </div>
+        
+        <div class="no-issues" style="text-align: center; padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
+            <div style="background: rgba(255, 255, 255, 0.7); padding: 3rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Be Part of Our Journey</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.7;">
+                    As we prepare to launch our first issue in January 2025, this space will grow into a collection of voices and stories that define our publication. 
+                    Every great literary journal starts with a single page. Ours is waiting to be written.
+                </p>
+                <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 2rem;">
+                    "A journey of a thousand pages begins with a single word."
+                </p>
+                <button onclick="window.open('https://tally.so/r/2E8L6L', '_blank')" class="submit-button">
+                    Be Among the First Contributors
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submissions -->
+    <section id="submissions" class="submissions">
+        <div class="submissions-header">
+            <h2>Call for Submissions</h2>
+            <p>We're accepting poetry, prose, and experimental work year-round</p>
+        </div>
+
+        <div class="submission-content">
+            <div class="submission-info">
+                <div class="info-block">
+                    <h3>Fiction & Prose</h3>
+                    <p>Up to 7,500 words | Experimental and traditional forms welcomed</p>
+                </div>
+                <div class="info-block">
+                    <h3>Poetry</h3>
+                    <p>Any length | Individual poems or collections up to 10 pages</p>
+                </div>
+                <div class="info-block">
+                    <h3>Creative Nonfiction</h3>
+                    <p>Up to 5,000 words | Personal essays, memoirs, and reflections</p>
+                </div>
+            </div>
+
+            <div class="submission-cta">
+                <button onclick="window.open('https://tally.so/r/2E8L6L', '_blank')" class="submit-button">
+                    Submit Your Work
+                </button>
+                <p class="submission-note">You'll be redirected to our submissions form</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="about-header">
+            <h2>About As Flowers</h2>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>As Flowers is a biannual literary magazine dedicated to publishing exceptional poetry, prose, and creative work that explores the human experience through the lens of natural beauty and emotional depth.</p>
+                <p>Founded in 2025 by <a href="https://instagram.com/notashikur" target="_blank" class="instagram-link">Ashikur Rahman</a>, we believe in amplifying diverse voices and creating space for experimental and traditional literary forms to coexist. Our name draws inspiration from the idea that words, like flowers, bloom in unexpected moments and transform the landscape of our inner worlds.</p>
+                <p>Each issue is carefully curated by our editorial team and features established and emerging writers from around the world.</p>
+            </div>
+            
+            <div class="team">
+                <h3>Editorial Team</h3>
+                <ul class="team-list">
+                    <li><strong>Editor-in-Chief:</strong> <a href="https://instagram.com/notashikur" target="_blank" class="instagram-link">Ashikur Rahman</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>As Flowers</h4>
+                <p>A literary magazine celebrating voices and stories</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#current-issue">Current Issue</a></li>
+                    <li><a href="#archives">Archives</a></li>
+                    <li><a href="#submissions">Submit</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="https://instagram.com/asflowersmagazine">Instagram</a></li>
+                    <li><a href="https://x.com/asflowersmag">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 As Flowers Literary Magazine. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/newsletter.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
