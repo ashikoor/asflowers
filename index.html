@@ -1,318 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>As Flowers — Literary Magazine</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>as flowers</title>
+  <link rel="icon" type="image/jpeg" href="asflowers.jpg">
+  <link rel="apple-touch-icon" href="asflowers.jpg">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-         <div class="logo-container">
-             <img src="aflogo.jpg" alt="as flowers Logo" class="logo-image">
-             <span class="logo-text">as flowers</span>
-         </div>
-            <div class="nav-menu">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#current-issue" class="nav-link">Current Issue</a>
-                <a href="#archives" class="nav-link">Archives</a>
-                <a href="#submissions" class="nav-link">Submit</a>
-                <a href="#about" class="nav-link">About</a>
-            </div>
-        </div>
-    </nav>
-
-<!-- Hero Section -->
-<section id="hero" class="hero">
-    <div class="hero-content">
-        <h1 class="hero-title">Where Words Bloom</h1>
-        <p class="hero-subtitle">A journal that helps writings bloom af(as flowers)</p>
-        <a href="#submissions" class="cta-button">Submit Your Work</a>
+  <!-- Poster Navbar -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="as flowers">
+        <img class="brand-logo" src="asflowers.jpg" alt="as flowers logo" width="40" height="40" />
+        <span class="brand-name">as flowers</span>
+      </a>
+      <nav class="menu">
+        <a class="menu-link" href="#home">Home</a>
+        <a class="menu-link" href="#highlights">Highlights</a>
+        <a class="menu-link" href="#submit">Submit</a>
+        <a class="menu-link" href="#about">About</a>
+      </nav>
+      <div class="menu-actions">
+        <a class="btn-cut small" href="#submit">Submit</a>
+      </div>
+      <!-- ADDED social links -->
+      <div class="nav-social">
+        <a class="social-link instagram" href="https://instagram.com/asflowersmagazine" target="_blank" rel="noopener" aria-label="Ashikur Rahman on Instagram">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.5"></circle></svg>
+        </a>
+        <a class="social-link twitter" href="https://twitter.com/asflowersmag" target="_blank" rel="noopener" aria-label="Ashikur Rahman on Twitter">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 5.8c-.7.3-1.5.5-2.2.6.8-.5 1.4-1.2 1.7-2.1-.7.5-1.6.8-2.5 1-1.6-1.7-4.5-.9-5.2 1.3-.3.9-.2 1.8.2 2.6-3.4-.1-6.4-1.8-8.4-4.5-.9 1.6-.4 3.7 1.2 4.7-.6 0-1.2-.2-1.7-.5 0 1.9 1.3 3.6 3.2 4-.5.1-1 .2-1.5.1.4 1.5 1.8 2.6 3.4 2.6-1.3 1-3 1.5-4.6 1.3 1.6 1 3.5 1.6 5.4 1.6 6.5 0 10.1-5.4 9.8-10.1.7-.5 1.3-1.1 1.8-1.8z"/></svg>
+        </a>
+      </div>
     </div>
-    <div class="hero-image">
-        <div class="image-container">
-            <img src="https://i.pinimg.com/736x/8c/aa/8c/8caa8ccd038fd36872fac5d1d044c112.jpg" alt="Beautiful pink flower" class="hero-flower">
-            <div class="overlay"></div>
-        </div>
+    <div class="stripe" aria-hidden="true"></div>
+  </header>
+
+  <!-- Hero Poster -->
+  <main id="home" class="hero">
+    <!-- Background poster layers -->
+    <div class="hero-bg">
+      <div class="bg-halftone"></div>
+      <div class="bg-stripes"></div>
+      <div class="bg-flower flower-a"></div>
+      <div class="bg-flower flower-b"></div>
+      <div class="bg-flower flower-c"></div>
+      <div class="bg-petal petal-1"></div>
+      <div class="bg-petal petal-2"></div>
     </div>
-</section>
 
-<style>
-    .hero {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 6rem 2rem;
-        min-height: 90vh;
-    }
-
-    .hero-content {
-        padding: 2rem 0;
-        animation: fadeInUp 0.8s ease-out;
-    }
-
-    .hero-title {
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        line-height: 1.1;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-    }
-
-    .hero-subtitle {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        margin-bottom: 2.5rem;
-        font-weight: 400;
-        max-width: 90%;
-        line-height: 1.7;
-    }
-
-    .hero-image {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        aspect-ratio: 3/4;
-        height: 100%;
-        max-height: 600px;
-        animation: fadeInRight 0.8s ease-out 0.2s backwards;
-    }
-
-    .image-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-
-    .hero-flower {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hero-image:hover .hero-flower {
-        transform: scale(1.08);
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%);
-        mix-blend-mode: multiply;
-        transition: opacity 0.5s ease;
-    }
-
-    .hero-image:hover .overlay {
-        opacity: 0.9;
-    }
-
-    .cta-button {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: var(--primary);
-        color: white;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-    }
-
-    .cta-button:hover {
-        background: transparent;
-        color: var(--primary);
-        border-color: var(--primary);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 1024px) {
-        .hero {
-            grid-template-columns: 1fr;
-            text-align: center;
-            padding: 4rem 2rem;
-            min-height: auto;
-            gap: 2rem;
-        }
-
-        .hero-content {
-            order: 2;
-            padding: 2rem 0 0;
-        }
-
-        .hero-subtitle {
-            margin: 0 auto 2rem;
-        }
-
-        .hero-image {
-            order: 1;
-            max-width: 500px;
-            margin: 0 auto;
-            aspect-ratio: 4/3;
-        }
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes fadeInRight {
-        from {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-</style>
-    <!-- Current Issue -->
-    <section id="current-issue" class="current-issue">
-        <div class="section-header">
-            <h2>Coming Soon in January 2026</h2>
-            <p class="issue-subtitle">Initial Blooms</p>
-            <p class="issue-description">Our inaugural issue, celebrating new voices and fresh perspectives in literature.</p>
+    <div class="hero-inner">
+      <section class="hero-copy reveal">
+        <h1 class="poster-title">
+          as flowers
+          <span class="poster-pop">MAGAZINE</span>
+        </h1>
+        <p class="poster-lead">
+          A literary magazine where writings grow af(as flowers)
+        </p>
+        <div class="poster-cta">
+          <a class="btn-cut big" href="#submit">Submit your work</a>
+          <a class="btn-outline" href="#highlights">Explore highlights →</a>
         </div>
-        
-        <div class="coming-soon" style="text-align: center; padding: 4rem 2rem;">
-            <div style="max-width: 600px; margin: 0 auto;">
-                <h3 style="margin-bottom: 1.5rem;">Be Part of Our First Issue</h3>
-                <p style="margin-bottom: 2rem; color: var(--text-secondary);">
-                    We're currently accepting submissions for our debut issue. Share your poetry, fiction, and creative nonfiction with us.
-                </p>
-                <button onclick="window.open('https://tally.so/r/2E8L6L', '_blank')" class="submit-button">
-                    Submit Your Work
-                </button>
-            </div>
-        </div>
-    </section>
+      </section>
 
-    <!-- Archives -->
-    <section id="archives" class="archives">
-        <div class="section-header">
-            <h2>Our Story Begins</h2>
-            <p class="subtitle">A new chapter in literary expression</p>
+      <section class="poster-art reveal" aria-hidden="true">
+        <div class="sticker">
+          <div class="sticker-face">☺</div>
         </div>
-        
-        <div class="no-issues" style="text-align: center; padding: 4rem 2rem; max-width: 800px; margin: 0 auto;">
-            <div style="background: rgba(255, 255, 255, 0.7); padding: 3rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
-                <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Be Part of Our Journey</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.7;">
-                    As we prepare to launch our first issue in January 2025, this space will grow into a collection of voices and stories that define our publication. 
-                    Every great literary journal starts with a single page. Ours is waiting to be written.
-                </p>
-                <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 2rem;">
-                    "A journey of a thousand pages begins with a single word."
-                </p>
-                <button onclick="window.open('https://tally.so/r/2E8L6L', '_blank')" class="submit-button">
-                    Be Among the First Contributors
-                </button>
-            </div>
-        </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- Submissions -->
-    <section id="submissions" class="submissions">
-        <div class="submissions-header">
-            <h2>Call for Submissions</h2>
-            <p>We're accepting poetry, prose, and experimental work year-round</p>
-        </div>
+    <!-- Zigzag divider -->
+    <div class="divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none" class="divider-svg">
+        <path d="M0,40 L150,10 L300,70 L450,10 L600,70 L750,10 L900,70 L1050,10 L1200,40 L1200,80 L0,80 Z"></path>
+      </svg>
+    </div>
+  </main>
 
-        <div class="submission-content">
-            <div class="submission-info">
-                <div class="info-block">
-                    <h3>Fiction & Prose</h3>
-                    <p>Up to 7,500 words | Experimental and traditional forms welcomed</p>
-                </div>
-                <div class="info-block">
-                    <h3>Poetry</h3>
-                    <p>Any length | Individual poems or collections up to 10 pages</p>
-                </div>
-                <div class="info-block">
-                    <h3>Creative Nonfiction</h3>
-                    <p>Up to 5,000 words | Personal essays, memoirs, and reflections</p>
-                </div>
-            </div>
+  <!-- Highlights Posters -->
+  <section id="highlights" class="section">
+    <div class="section-head reveal">
+      <h2 class="section-title">Highlights</h2>
+      <p class="section-note">Read some of our pieces.</p>
+    </div>
 
-            <div class="submission-cta">
-                <button onclick="window.open('https://tally.so/r/2E8L6L', '_blank')" class="submit-button">
-                    Submit Your Work
-                </button>
-                <p class="submission-note">You'll be redirected to our submissions form</p>
-            </div>
+    <div class="grid">
+      <article class="poster-card reveal">
+        <div class="poster-top p-1">
+          <span class="poster-tag">poetry</span>
         </div>
-    </section>
+        <div class="poster-body">
+          <h3>Sweet God</h3>
+          <p>By TheQuietstorme </p>
+          <a class="poster-link" href="poems/sweet-god.html">Read poem →</a>
+        </div>
+      </article>
 
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="about-header">
-            <h2>About As Flowers</h2>
+      <article class="poster-card reveal">
+        <div class="poster-top p-2">
+          <span class="poster-tag">poetry</span>
         </div>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <p>As Flowers is a biannual literary magazine dedicated to publishing exceptional poetry, prose, and creative work that explores the human experience through the lens of natural beauty and emotional depth.</p>
-                <p>Founded in 2025 by <a href="https://instagram.com/notashikur" target="_blank" class="instagram-link">Ashikur Rahman</a>, we believe in amplifying diverse voices and creating space for experimental and traditional literary forms to coexist. Our name draws inspiration from the idea that words, like flowers, bloom in unexpected moments and transform the landscape of our inner worlds.</p>
-                <p>Each issue is carefully curated by our editorial team and features established and emerging writers from around the world.</p>
-            </div>
-            
-            <div class="team">
-                <h3>Editorial Team</h3>
-                <ul class="team-list">
-                    <li><strong>Editor-in-Chief:</strong> <a href="https://instagram.com/notashikur" target="_blank" class="instagram-link">Ashikur Rahman</a></li>
-                </ul>
-            </div>
+        <div class="poster-body">
+          <h3>The Garden Within</h3>
+          <p>By C. Louise </p>
+          <a class="poster-link" href="poems/the-garden-within.html">Read poem →</a>
         </div>
-    </section>
+      </article>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>As Flowers</h4>
-                <p>A literary magazine celebrating voices and stories</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#current-issue">Current Issue</a></li>
-                    <li><a href="#archives">Archives</a></li>
-                    <li><a href="#submissions">Submit</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <ul>
-                    <li><a href="https://instagram.com/asflowersmagazine">Instagram</a></li>
-                    <li><a href="https://x.com/asflowersmag">Twitter</a></li>
-                </ul>
-            </div>
+      <article class="poster-card reveal">
+        <div class="poster-top p-3">
+          <span class="poster-tag">poetry</span>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 As Flowers Literary Magazine. All rights reserved.</p>
+        <div class="poster-body">
+          <h3>Ever Since A Kid</h3>
+          <p>By Userunknow___999</p>
+          <a class="poster-link" href="poems/ever-since-a-kid.html">Read poem →</a>
         </div>
-    </footer>
+      </article>
+    </div>
+  </section>
 
-    <script src="js/newsletter.js"></script>
-    <script src="script.js"></script>
+  <!-- Submit CTA -->
+  <section id="submit" class="cta-band">
+    <div class="cta-box reveal">
+      <h2 class="cta-title">Submit your work — go loud, go floral.</h2>
+      <p>Poetry, prose, experiments. We love color and courage.</p>
+      <div class="cta-actions">
+        <a class="btn-cut big" href="https://tally.so/r/2E8L6L" target="_blank" rel="noopener">Submit via Tally</a>
+        <a class="btn-cut" href="#about">About us</a>
+      </div>
+    </div>
+    <div class="cta-sparkles" aria-hidden="true"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="section-head reveal">
+      <h2 class="section-title">About as flowers</h2>
+      <p class="section-note">A magazine where bold ideas take root and unfurl af</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <h3>Our vibe</h3>
+        <p>A meeting point of incisive writing and artful design.
+          Clean lines, deliberate color, and a quiet thread of floral imagery shape our visual identity.
+          We value clarity, resonance, and work that lingers.</p>
+      </div>
+      <div class="about-card reveal">
+        <h3>Editor</h3>
+        <p>Curated by Ashikur Rahman — building a home for bold voices.</p>
+        <!-- ADDED social links inside Editor bio -->
+        <div class="bio-social">
+          <a class="social-link instagram" href="https://instagram.com/notashikur" target="_blank" rel="noopener" aria-label="Ashikur Rahman on Instagram">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.5"></circle></svg>
+          </a>
+          <a class="social-link twitter" href="https://twitter.com/ashikurraxman" target="_blank" rel="noopener" aria-label="Ashikur Rahman on Twitter">
+            <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 5.8c-.7.3-1.5.5-2.2.6.8-.5 1.4-1.2 1.7-2.1-.7.5-1.6.8-2.5 1-1.6-1.7-4.5-.9-5.2 1.3-.3.9-.2 1.8.2 2.6-3.4-.1-6.4-1.8-8.4-4.5-.9 1.6-.4 3.7 1.2 4.7-.6 0-1.2-.2-1.7-.5 0 1.9 1.3 3.6 3.2 4-.5.1-1 .2-1.5.1.4 1.5 1.8 2.6 3.4 2.6-1.3 1-3 1.5-4.6 1.3 1.6 1 3.5 1.6 5.4 1.6 6.5 0 10.1-5.4 9.8-10.1.7-.5 1.3-1.1 1.8-1.8z"/></svg>
+          </a>
+        </div>
+        <p class="bio-note">Share your handles and I’ll wire them precisely.</p>
+      </div>
+      <div class="about-card reveal">
+        <h3>Cycle</h3>
+        <p>Each issue blooms in its own time.
+          We publish with deliberation, allowing work to take the shape it needs.
+          Submissions remain open year-round.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-badge">✿</span>
+        <span class="brand-name">as flowers</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#submit">Submit</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 as flowers — neon cartoon edition.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
