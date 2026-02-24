@@ -1,168 +1,177 @@
-/* Reset & Base */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; overflow-x: hidden; }
+/* Reset */ 
+* { box-sizing: border-box; } 
+html, body { margin: 0; padding: 0; } 
+img { display: block; max-width: 100%; } 
 
-:root {
-  /* Editorial Palette: Dried Flowers & Linen */
-  --bg-parchment: #fdfaf7;
-  --bg-sage: #f4f7f2;
-  --bg-petal: #faf5f8;
-  
-  --ink: #2d2926;       /* Soft charcoal, never pure black */
-  --muted: #7c867a;     /* Mossy grey-green */
-  --stroke: #e3dcd2;    /* Very light linen border */
-  --accent: #b2967d;    /* Muted gold/tan for links */
-  
-  --serif: "Cormorant Garamond", serif;
-  --body-font: "Lora", serif;
-  
-  --speed: 600ms cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow-soft: 0 10px 40px rgba(0,0,0,0.03);
-}
+/* Beautiful Floral Palette (Editorial & Sophisticated) */ 
+:root { 
+  --bg-a: #fdfaf7;      /* cream parchment */ 
+  --bg-b: #f4f7f2;      /* soft sage */ 
+  --bg-c: #faf5f8;      /* dusty rose */ 
 
-/* Atmospheric Background */
-html {
+  --ink: #2d2926;       /* deep charcoal */ 
+  --muted: #7c867a;     /* mossy gray */ 
+  --stroke: #dcd0c0;    /* linen stroke */ 
+
+  --accent-gold: #b2967d; 
+  --petal-pink: #e8d1d1; 
+  --leaf-green: #9fb8ad; 
+  --twilight: #6d7d90; 
+
+  --radius: 12px; 
+  --radius-sm: 8px; 
+  --radius-lg: 24px; 
+
+  --speed: 600ms cubic-bezier(0.22, 1, 0.36, 1); 
+  --shadow: 0 12px 30px rgba(0,0,0,0.05); 
+} 
+
+/* Base */ 
+html { 
   background: 
-    radial-gradient(at 0% 0%, rgba(232, 209, 209, 0.2), transparent 50%),
-    radial-gradient(at 100% 100%, rgba(124, 134, 122, 0.1), transparent 50%),
-    var(--bg-parchment);
-}
+    radial-gradient(1000px 480px at -10% 10%, rgba(178,150,125,0.08), transparent 60%), 
+    radial-gradient(800px 420px at 110% 10%, rgba(159,184,173,0.08), transparent 60%), 
+    linear-gradient(180deg, var(--bg-a), var(--bg-b), var(--bg-c)); 
+} 
+body { 
+  color: var(--ink); 
+  font-family: "Lora", serif; 
+  -webkit-font-smoothing: antialiased; 
+} 
 
-body {
-  color: var(--ink);
-  font-family: var(--body-font);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
+/* Grain for fine art paper texture */ 
+body::before { 
+  content: ""; 
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; 
+  opacity: 0.04; mix-blend-mode: multiply; 
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' /></svg>"); 
+  animation: grain 8s steps(10) infinite; 
+} 
+@keyframes grain { 0%{transform:translate(0,0)} 25%{transform:translate(-0.5%,0.5%)} 50%{transform:translate(0.5%,-0.5%)} 100%{transform:translate(0,0)} } 
 
-/* Paper Texture Overlay */
-body::before {
-  content: "";
-  position: fixed; inset: 0; pointer-events: none; z-index: 50;
-  opacity: 0.05;
-  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-}
+/* Navbar */ 
+.nav { position: sticky; top: 0; z-index: 100; } 
+.nav-inner { 
+  max-width: 1200px; margin: 1.5rem auto; padding: 1rem 2rem; 
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; 
+  border-bottom: 1px solid var(--stroke); 
+  background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); 
+} 
+.brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; } 
+.brand-name { 
+  font-family: "Cormorant Garamond", serif; font-size: 1.8rem; font-style: italic; color: var(--ink); letter-spacing: -0.02em; 
+} 
+.brand-badge { 
+  width: 40px; height: 40px; border-radius: 50%; 
+  display: grid; place-items: center; font-weight: 300; color: #fff; 
+  background: linear-gradient(135deg, var(--accent-gold), var(--petal-pink)); 
+  border: 1px solid var(--stroke); 
+} 
+.menu { display: flex; gap: 2rem; align-items: center; } 
+.menu-link { 
+  color: var(--ink); text-decoration: none; font-weight: 400; font-family: "Cormorant Garamond", serif; font-size: 1.1rem;
+  transition: var(--speed); 
+} 
+.menu-link:hover { color: var(--accent-gold); transform: translateY(-1px); } 
 
-/* Navbar: Minimalist & Floating */
-.nav { 
-  position: sticky; top: 0; z-index: 100; 
-  padding: 1.5rem 2rem;
-}
-.nav-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid var(--stroke);
-  padding-bottom: 1rem;
-}
-.brand-name {
-  font-family: var(--serif);
-  font-size: 1.8rem;
-  font-style: italic;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-  color: var(--ink);
-}
+.stripe { 
+  height: 1px; margin: 2rem 2rem 0; 
+  background: linear-gradient(90deg, transparent, var(--stroke), transparent); 
+} 
 
-/* Hero Section: Elegant & Spacious */
-.hero {
-  max-width: 1100px; margin: 0 auto;
-  padding: 8rem 2rem;
-  text-align: center;
-}
-.poster-title {
-  font-family: var(--serif);
-  font-size: clamp(3rem, 10vw, 6rem);
-  font-weight: 400;
-  line-height: 0.9;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
-}
-.poster-lead {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.4rem;
-  color: var(--muted);
-  max-width: 30ch; margin: 0 auto 2.5rem;
-}
+/* Hero poster */ 
+.hero { position: relative; padding: 4rem 0; } 
+.hero-bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; } 
+.bg-halftone { 
+  position: absolute; inset: -10%; 
+  background: radial-gradient(circle at 30% 30%, rgba(178,150,125,0.05), transparent 60%); 
+} 
+.bg-stripes { 
+  position: absolute; right: -120px; top: 10%; width: 480px; height: 70%; 
+  background: repeating-linear-gradient(180deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 20px); 
+  transform: rotate(5deg); 
+} 
+.bg-flower, .bg-petal { 
+  position: absolute; border: 1px solid var(--stroke); border-radius: 50%; 
+  opacity: 0.6;
+} 
+.flower-a { width: 300px; height: 300px; left: -100px; top: 120px; background: radial-gradient(var(--bg-a), transparent); } 
+.flower-b { width: 250px; height: 250px; right: 80px; top: 40px; background: radial-gradient(var(--bg-b), transparent); } 
 
-/* Buttons: No more "Stickers" */
-.btn-cut {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  text-decoration: none;
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  transition: var(--speed);
-  background: transparent;
-}
-.btn-cut:hover {
-  background: var(--ink);
-  color: #fff;
-}
+.hero-inner { 
+  max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; 
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; 
+} 
+.poster-title { 
+  font-family: "Playfair Display", serif; font-size: clamp(3.5rem, 8vw, 6.5rem); 
+  line-height: 0.85; margin: 0; font-weight: 400; letter-spacing: -0.04em; 
+} 
+.poster-pop { 
+  display: block; font-style: italic; font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem; color: var(--accent-gold); margin-top: 1rem;
+} 
+.poster-lead { color: var(--muted); margin: 2rem 0; font-size: 1.2rem; line-height: 1.6; max-width: 45ch; } 
 
-/* Grid: Fine Art Gallery Feel */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  max-width: 1100px; margin: 4rem auto;
-  padding: 0 2rem;
-}
-.poster-card {
-  border-top: 1px solid var(--stroke); /* Only a top line for elegance */
-  background: transparent;
-  padding-top: 1.5rem;
-  transition: var(--speed);
-}
-.poster-card:hover { transform: translateY(-5px); }
+.btn-cut { 
+  display: inline-flex; align-items: center; gap: 1rem; 
+  padding: 1rem 2.5rem; text-decoration: none; color: var(--ink); 
+  background: #fff; border: 1px solid var(--ink); 
+  transition: var(--speed); font-family: "Cormorant Garamond", serif;
+} 
+.btn-cut:hover { background: var(--ink); color: #fff; letter-spacing: 0.1em; } 
 
-.poster-top {
-  aspect-ratio: 4/5;
-  background: var(--bg-sage);
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-}
+/* Cards & Grid */ 
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 2rem; } 
+.poster-card { 
+  border-bottom: 1px solid var(--stroke); padding-bottom: 2rem;
+  background: transparent; transition: var(--speed); 
+} 
+.poster-card:hover { transform: translateY(-10px); } 
+.poster-top { height: 350px; background: var(--bg-b); margin-bottom: 1.5rem; position: relative; overflow: hidden; } 
 
-/* Poem Page: The Masterpiece */
-.poem-hero {
-  max-width: 800px; margin: 4rem auto;
-  text-align: center;
-  padding: 4rem 2rem;
-}
-.poem-title {
-  font-family: var(--serif);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 400;
-  margin-bottom: 1rem;
-}
-.poem-title::after {
-  content: "✿";
-  display: block;
-  font-size: 1rem;
-  margin-top: 1.5rem;
-  color: var(--accent);
-}
+.poster-body h3 { 
+  font-family: "Playfair Display", serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 0.5rem; 
+} 
 
-.poem-body {
-  max-width: 600px; margin: 0 auto 6rem;
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  line-height: 1.8;
-  white-space: pre-wrap;
-  color: #333;
-}
+/* Poem Page Overrides */ 
+.poem-hero { 
+  max-width: 800px; margin: 6rem auto; text-align: center; 
+  border: 1px solid var(--stroke); padding: 5rem 2rem;
+  background: #fff; position: relative;
+} 
+@keyframes frame-spin { to { transform: rotate(360deg); } } 
+.poem-hero::before { 
+  content: ""; position: absolute; width: 100px; height: 100px; 
+  border: 1px solid var(--stroke); border-radius: 50%; left: -50px; top: -50px; 
+  animation: frame-spin 20s linear infinite; 
+} 
 
-/* Drop Cap: Subtle and classic */
-.poem-body::first-letter {
-  float: left;
-  font-size: 4rem;
-  line-height: 0.8;
-  margin: 0.5rem 0.8rem 0 0;
-  color: var(--accent);
-  font-family: var(--serif);
-}
+.poem-hero .poem-title { 
+  font-family: "Playfair Display", serif; font-size: clamp(3rem, 7vw, 5rem); 
+  font-weight: 400; font-style: italic; margin-bottom: 2rem;
+} 
+.poem-hero .poem-title::after { 
+  content: "✿"; display: block; font-size: 1.2rem; margin-top: 2rem; color: var(--accent-gold); 
+} 
 
-/* Hide the cartoonish elements from before */
-.sticker, .brand-badge, .stripe { display: none; }
+.poem-body { 
+  max-width: 600px; margin: 0 auto 8rem; line-height: 1.8; font-size: 1.25rem; 
+  font-family: "Cormorant Garamond", serif; color: #333;
+} 
+.poem-body::first-letter { 
+  float: left; font-family: "Playfair Display", serif; font-size: 4.5rem; 
+  line-height: 0.7; margin: 0.5rem 1rem 0 0; color: var(--accent-gold); 
+} 
+
+/* Custom Cursor Flower */ 
+.cursor-flower { 
+  position: fixed; left: 0; top: 0; width: 20px; height: 20px; 
+  pointer-events: none; z-index: 9999; border: 1px solid var(--accent-gold); 
+  border-radius: 50%; transition: transform 0.1s ease-out; 
+} 
+
+/* Mobile */ 
+@media (max-width: 900px) { 
+  .grid { grid-template-columns: 1fr; } 
+  .hero-inner { grid-template-columns: 1fr; text-align: center; } 
+}
