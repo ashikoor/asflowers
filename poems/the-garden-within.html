@@ -1,44 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Garden Within — C. Louise | as flowers</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Garden Within â€” C. Louise | as flowers</title>
+<link rel="icon" type="image/jpeg" href="../asflowers.jpg">
+<link rel="apple-touch-icon" href="../asflowers.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #1a1a1a;
+    --concrete: #8c8c8c;
+    --oxford: #1b263b;
+    --rose: #660708;
+    --cream: #e8e0d0;
+    --parchment: #d4c9b0;
+    --border: 4px solid var(--obsidian);
+    --border-thick: 7px solid var(--obsidian);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--obsidian);
+    font-family: 'IBM Plex Mono', monospace;
+    overflow-x: hidden;
+    cursor: crosshair;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.6;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--obsidian);
+    border-bottom: 7px solid var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 54px;
+    flex-shrink: 0;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-brand img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border: 2px solid var(--rose);
+  }
+
+  .nav-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cream);
+    text-transform: lowercase;
+  }
+
+  .nav-links { display: flex; list-style: none; }
+
+  .nav-links a {
+    display: block;
+    padding: 0 1.1rem;
+    height: 54px;
+    line-height: 54px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--concrete);
+    text-decoration: none;
+    border-left: 2px solid #2e2e2e;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .nav-links a:hover { background: var(--rose); color: var(--cream); }
+
+  .poem-header-band {
+    background: var(--obsidian);
+    border-bottom: var(--border-thick);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+  }
+
+  .poem-header-left {
+    padding: 4rem 5rem;
+    border-right: var(--border-thick);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .poem-header-left::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 38px,
+      rgba(255,255,255,0.025) 38px, rgba(255,255,255,0.025) 39px
+    );
+    pointer-events: none;
+  }
+
+  .poem-header-left::after {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22rem;
+    line-height: 1;
+    color: rgba(255,255,255,0.03);
+    font-style: italic;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .poem-genre-tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 700;
+    border: 2px solid var(--rose);
+    display: inline-block;
+    padding: 0.22rem 0.6rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .poem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.92;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+  }
+
+  .poem-author-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .poem-author {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--concrete);
+    font-weight: 700;
+  }
+
+  .author-ig {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    text-decoration: none;
+    color: var(--concrete);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    border: 1px solid #333;
+    padding: 0.25rem 0.6rem;
+    transition: all 0.15s;
+  }
+
+  .author-ig:hover { border-color: var(--rose); color: var(--rose); }
+
+  .author-ig svg {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .featured-badge {
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid var(--rose);
+    padding: 0.22rem 0.6rem;
+    font-weight: 700;
+  }
+
+  .poem-header-right {
+    width: 220px;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #111;
+  }
+
+  .meta-label {
+    font-size: 0.48rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .meta-value {
+    font-size: 0.6rem;
+    color: var(--concrete);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-value a { color: var(--concrete); text-decoration: none; }
+  .meta-value a:hover { color: var(--rose); }
+
+  .poem-content {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    flex: 1;
+  }
+
+  .poem-text-area {
+    padding: 6rem 5rem;
+    border-right: var(--border-thick);
+    background: var(--cream);
+  }
+
+  .poem-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 2;
+    color: var(--obsidian);
+    white-space: pre-line;
+    text-align: left;
+    max-width: 58ch;
+    font-weight: 400;
+  }
+
+  .poem-sidebar {
+    background: var(--parchment);
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-bottom: var(--border-thick);
+  }
+
+  .sidebar-section-label {
+    font-size: 0.5rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 700;
+    border-bottom: 1px solid var(--rose);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-nav-link {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--obsidian);
+    text-decoration: none;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-weight: 700;
+    transition: color 0.15s;
+  }
+
+  .sidebar-nav-link:hover { color: var(--rose); }
+
+  .sidebar-poem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--oxford);
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+  }
+
+  .sidebar-poem-author {
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--concrete);
+  }
+
+  .poem-footer-nav {
+    background: var(--obsidian);
+    border-top: var(--border-thick);
+    border-top-color: var(--rose);
+    padding: 2.5rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .btn-back {
+    display: inline-block;
+    background: transparent;
+    color: var(--cream);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 3px solid #333;
+    transition: all 0.15s;
+  }
+
+  .btn-back:hover { border-color: var(--cream); }
+
+  .btn-submit {
+    display: inline-block;
+    background: var(--rose);
+    color: var(--cream);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 3px solid var(--rose);
+    position: relative;
+    transition: all 0.15s;
+  }
+
+  .btn-submit::after {
+    content: '';
+    position: absolute;
+    inset: 3px -3px -3px 3px;
+    background: #3d0405;
+    z-index: -1;
+  }
+
+  .btn-submit:hover { transform: translate(-1px, -1px); }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--obsidian); }
+  ::-webkit-scrollbar-thumb { background: var(--rose); }
+
+  @media (max-width: 800px) {
+    .poem-header-band { grid-template-columns: 1fr; }
+    .poem-header-right { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 1rem; padding: 2rem; }
+    .poem-content { grid-template-columns: 1fr; }
+    .poem-text-area { padding: 3rem 2rem; border-right: none; }
+    .poem-sidebar { display: none; }
+    .poem-header-left { padding: 3rem 2rem; }
+    .poem-footer-nav { padding: 2rem; }
+    .nav-links { display: none; }
+  }
+</style>
 </head>
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="../index.html" aria-label="as flowers">
-        <img class="brand-logo" src="../asflowers.jpg" alt="as flowers logo" width="40" height="40" />
-        <span class="brand-name">as flowers</span>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <img src="../asflowers.jpg" alt="as flowers">
+    <span class="nav-brand-name">as flowers</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#highlights">Highlights</a></li>
+    <li><a href="../index.html#submit">Submit</a></li>
+    <li><a href="../index.html#about">About</a></li>
+  </ul>
+</nav>
+
+<div class="poem-header-band">
+  <div class="poem-header-left">
+    <div class="poem-genre-tag">Poetry â€” Issue 01</div>
+    <h1 class="poem-title">The Garden<br>Within</h1>
+    <div class="poem-author-line">
+      <span class="poem-author">C. Louise</span>
+      <a class="author-ig" href="https://instagram.com/HerSoftSpokenSoul" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        @HerSoftSpokenSoul
       </a>
-      <nav class="menu">
-        <a class="menu-link" href="../index.html#highlights">Highlights</a>
-        <a class="menu-link" href="../index.html#submit">Submit</a>
-        <a class="menu-link" href="../index.html#about">About</a>
-      </nav>
-      <div class="menu-actions">
-        <a class="btn-cut small" href="../index.html#submit">Submit</a>
+      <span class="featured-badge">1st Issue</span>
+    </div>
+  </div>
+  <div class="poem-header-right">
+    <div>
+      <div class="meta-label">Publication</div>
+      <div class="meta-value">as flowers<br>Issue 01</div>
+    </div>
+    <div>
+      <div class="meta-label">Genre</div>
+      <div class="meta-value">Poetry</div>
+    </div>
+    <div>
+      <div class="meta-label">Magazine</div>
+      <div class="meta-value">
+        <a href="https://instagram.com/asflowersmagazine" target="_blank">@asflowersmagazine</a>
       </div>
     </div>
-    <div class="stripe" aria-hidden="true"></div>
-  </header>
-
-  <main class="poem-hero reveal">
-    <h1 class="poem-title">The Garden Within</h1>
-    <div class="poem-meta">
-      <span>by C. Louise</span>
-      <a class="social-link instagram" href="https://instagram.com/HerSoftSpokenSoul" target="_blank" rel="noopener" aria-label="C. Louise on Instagram">
-        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1.5"></circle></svg>
-      </a>
-      <span class="featured-badge">Will be featured in our 1st issue.</span>
+    <div>
+      <div class="meta-label">Submit</div>
+      <div class="meta-value">
+        <a href="https://tally.so/r/2E8L6L" target="_blank">tally.so/r/2E8L6L</a>
+      </div>
     </div>
+  </div>
+</div>
 
-    <article class="poem-body">
-I am a quiet, light forest of bones,
+<div class="poem-content">
+  <div class="poem-text-area">
+    <article class="poem-body">I am a quiet, light forest of bones,
 roots twisting through the soil of myself,
 petals pressing against the ribs of night,
 aching toward some sun I cannot name.
@@ -51,7 +458,7 @@ tender, relentless, impossible to deny.
 Growth hums in the hollow of my chest,
 a pulse I cannot ignore,
 the trembling green of new leaves
-sprouting from yesterday’s ash.
+sprouting from yesterday's ash.
 
 I bloom in the fractures,
 drink the rain that fell on my silence,
@@ -63,15 +470,42 @@ that refuses to be contained.
 I am both fragile and infinite,
 a garden of storms and sunlight,
 remembering that even the shattered
-can root, can rise, can bloom again.
-    </article>
+can root, can rise, can bloom again.</article>
+  </div>
 
-    <div class="poem-footer">
-      <a class="btn-cut" href="../index.html#highlights">← Back to Highlights</a>
-      <a class="btn-outline" href="../index.html#submit">Submit your work</a>
+  <div class="poem-sidebar">
+    <div>
+      <div class="sidebar-section-label">Also In This Issue</div>
+      <a class="sidebar-nav-link" href="sweet-god.html">
+        <div class="sidebar-poem-title">Sweet God</div>
+        <div class="sidebar-poem-author">TheQuietstorme</div>
+      </a>
+      <a class="sidebar-nav-link" href="ever-since-a-kid.html">
+        <div class="sidebar-poem-title">Ever Since A Kid</div>
+        <div class="sidebar-poem-author">Userunknow___999</div>
+      </a>
     </div>
-  </main>
 
-  <script src="../script.js"></script>
+    <div>
+      <div class="sidebar-section-label">Submit Your Work</div>
+      <p style="font-size:0.6rem;line-height:1.8;color:var(--concrete);margin-bottom:1rem;">Poetry, prose, experiments. We love color and courage.</p>
+      <a href="https://tally.so/r/2E8L6L" target="_blank" style="display:block;background:var(--rose);color:var(--cream);font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.8rem 1rem;text-align:center;">Submit via Tally â†’</a>
+    </div>
+
+    <div>
+      <div class="sidebar-section-label">Follow</div>
+      <p style="font-size:0.58rem;color:var(--concrete);letter-spacing:0.08em;">
+        <a href="https://instagram.com/asflowersmagazine" target="_blank" style="color:var(--concrete);text-decoration:none;display:block;margin-bottom:0.4rem;">IG @asflowersmagazine</a>
+        <a href="https://twitter.com/asflowersmag" target="_blank" style="color:var(--concrete);text-decoration:none;">X @asflowersmag</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="poem-footer-nav">
+  <a class="btn-back" href="../index.html#highlights">â† Back to Highlights</a>
+  <a class="btn-submit" href="https://tally.so/r/2E8L6L" target="_blank" rel="noopener">Submit your work â†’</a>
+</div>
+
 </body>
 </html>
