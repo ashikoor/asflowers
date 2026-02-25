@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>as flowers | literary magazine</title>
+<title>as flowers — literary magazine</title>
 <link rel="icon" type="image/jpeg" href="asflowers.jpg">
 <link rel="apple-touch-icon" href="asflowers.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,7 +98,6 @@
     color: var(--concrete);
     text-decoration: none;
     border-left: 2px solid #2e2e2e;
-    border-right: 2px solid #2e2e2e;
     transition: background 0.15s, color 0.15s;
   }
 
@@ -598,7 +597,7 @@
   }
 
   .founder-block::before {
-    content: 'EIC & FOUNDER';
+    content: 'EIC — FOUNDER';
     position: absolute;
     top: -1px;
     right: 1.5rem;
@@ -815,6 +814,251 @@
     .manifesto { flex-direction: column; gap: 1rem; }
     .cycle-band { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
   }
+
+  /* APP DOWNLOAD SECTION */
+  .app-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: var(--border-thick);
+    background: var(--obsidian);
+  }
+
+  .app-left {
+    padding: 5rem 4rem;
+    border-right: var(--border-thick);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .app-tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 700;
+    border: 2px solid var(--rose);
+    display: inline-block;
+    padding: 0.22rem 0.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .app-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 700;
+    line-height: 0.9;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .app-title em { font-style: italic; color: var(--rose); }
+
+  .app-body {
+    font-size: 0.65rem;
+    line-height: 2;
+    color: rgba(232,224,208,0.65);
+    margin-bottom: 2.5rem;
+    max-width: 40ch;
+  }
+
+  .app-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--rose);
+    color: var(--cream);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    border: 4px solid var(--rose);
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    width: fit-content;
+    margin-bottom: 1rem;
+  }
+
+  .app-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .app-btn::after {
+    content: '';
+    position: absolute;
+    inset: 4px -4px -4px 4px;
+    background: #3d0405;
+    z-index: -1;
+    transition: all 0.15s;
+  }
+
+  .app-btn:hover { transform: translate(-2px, -2px); }
+  .app-btn:hover::after { inset: 6px -6px -6px 6px; }
+
+  .app-note {
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+    color: rgba(140,140,140,0.6);
+    line-height: 1.8;
+    max-width: 38ch;
+  }
+
+  /* PHONE MOCKUP */
+  .app-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+    background: #111;
+    position: relative;
+  }
+
+  .app-mockup {
+    position: relative;
+    width: 220px;
+  }
+
+  .mockup-phone-border {
+    position: absolute;
+    inset: -10px -8px;
+    border: 3px solid #2e2e2e;
+    border-radius: 28px;
+    pointer-events: none;
+    box-shadow: 0 0 0 1px #1a1a1a, 8px 12px 0 #0a0a0a;
+  }
+
+  .mockup-screen {
+    background: #1a1a1a;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--rose);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mockup-nav {
+    background: #111;
+    border-bottom: 3px solid var(--rose);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--cream);
+    font-style: italic;
+  }
+
+  .mockup-logo {
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+    border: 1px solid var(--rose);
+    border-radius: 2px;
+  }
+
+  .mockup-hero {
+    background: #1a1a1a;
+    padding: 16px 14px 12px;
+    border-bottom: 3px solid #111;
+  }
+
+  .mockup-tag {
+    font-size: 6px;
+    letter-spacing: 0.2em;
+    color: var(--rose);
+    font-family: monospace;
+    font-weight: 700;
+    border: 1px solid var(--rose);
+    display: inline-block;
+    padding: 2px 5px;
+    margin-bottom: 8px;
+  }
+
+  .mockup-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 0.88;
+    color: var(--cream);
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .mockup-sub {
+    font-size: 7px;
+    color: rgba(232,224,208,0.5);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .mockup-card {
+    background: var(--parchment);
+    border-top: 3px solid #111;
+    border-left: 4px solid var(--rose);
+    padding: 8px 12px;
+    transition: background 0.2s;
+  }
+
+  .mockup-card-tag {
+    font-size: 5px;
+    letter-spacing: 0.15em;
+    color: var(--rose);
+    font-family: monospace;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .mockup-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--obsidian);
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .mockup-card-author {
+    font-size: 6px;
+    letter-spacing: 0.1em;
+    color: var(--concrete);
+    font-family: monospace;
+    text-transform: uppercase;
+  }
+
+  .mockup-bottom-nav {
+    background: #111;
+    border-top: 3px solid var(--rose);
+    display: flex;
+    justify-content: space-around;
+    padding: 7px 4px;
+  }
+
+  .mockup-nav-item {
+    font-size: 5px;
+    letter-spacing: 0.1em;
+    font-family: monospace;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+  }
+
+  .mockup-nav-item.active { color: var(--rose); }
+
+  @media (max-width: 900px) {
+    .app-section { grid-template-columns: 1fr; }
+    .app-left { border-right: none; border-bottom: var(--border-thick); padding: 3rem 2rem; }
+    .app-right { padding: 3rem 2rem; }
+  }
 </style>
 </head>
 <body>
@@ -826,7 +1070,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#highlights">Highlights</a></li>
-    <li><a href="#submit">Submit</a></li>
+    <li><a href="#app">App</a></li><li><a href="#submit">Submit</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <div class="nav-social">
@@ -858,29 +1102,49 @@
       IG: <a href="https://instagram.com/asflowersmagazine" target="_blank">@asflowersmagazine</a><br>
       X: <a href="https://twitter.com/asflowersmag" target="_blank">@asflowersmag</a><br>
       <br>
-      POETRY / PROSE / EXPERIMENTS
+      POETRY — PROSE — EXPERIMENTS
     </div>
   </div>
 
-  
+  <div class="hero-right">
+    <a class="hero-poem-card" href="poems/sweet-god.html">
+      <div class="hero-poem-tag">Poetry — Featured</div>
+      <div class="hero-poem-title">"Sweet God"</div>
+      <div class="hero-poem-author">— TheQuietstorme</div>
+      <div class="hero-poem-arrow">Read →</div>
+    </a>
+    <a class="hero-poem-card" href="poems/the-garden-within.html">
+      <div class="hero-poem-tag">Poetry — Featured</div>
+      <div class="hero-poem-title">"The Garden Within"</div>
+      <div class="hero-poem-author">— C. Louise</div>
+      <div class="hero-poem-arrow">Read →</div>
+    </a>
+    <a class="hero-poem-card" href="poems/ever-since-a-kid.html">
+      <div class="hero-poem-tag">Poetry — Featured</div>
+      <div class="hero-poem-title">"Ever Since A Kid"</div>
+      <div class="hero-poem-author">— Userunknow___999</div>
+      <div class="hero-poem-arrow">Read →</div>
+    </a>
+  </div>
+</section>
 
 <!-- MARQUEE -->
 <div class="marquee-strip">
   <div class="marquee-inner">
-    <span>Poetry</span><span class="accent">|</span>
-    <span>Prose</span><span class="accent">|</span>
-    <span>Experiments</span><span class="accent">|</span>
-    <span>as flowers</span><span class="accent">|</span>
-    <span>Writings grow af</span><span class="accent">|</span>
-    <span>Submissions Open</span><span class="accent">|</span>
-    <span>Go loud, go floral</span><span class="accent">|</span>
-    <span>Poetry</span><span class="accent">|</span>
-    <span>Prose</span><span class="accent">|</span>
-    <span>Experiments</span><span class="accent">|</span>
-    <span>as flowers</span><span class="accent">|</span>
-    <span>Writings grow af</span><span class="accent">|</span>
-    <span>Submissions Open</span><span class="accent">|</span>
-    <span>Go loud, go floral</span><span class="accent">|</span>
+    <span>Poetry</span><span class="accent">✦</span>
+    <span>Prose</span><span class="accent">✦</span>
+    <span>Experiments</span><span class="accent">✦</span>
+    <span>as flowers</span><span class="accent">✦</span>
+    <span>Writings grow af</span><span class="accent">✦</span>
+    <span>Submissions Open</span><span class="accent">✦</span>
+    <span>Go loud, go floral</span><span class="accent">✦</span>
+    <span>Poetry</span><span class="accent">✦</span>
+    <span>Prose</span><span class="accent">✦</span>
+    <span>Experiments</span><span class="accent">✦</span>
+    <span>as flowers</span><span class="accent">✦</span>
+    <span>Writings grow af</span><span class="accent">✦</span>
+    <span>Submissions Open</span><span class="accent">✦</span>
+    <span>Go loud, go floral</span><span class="accent">✦</span>
   </div>
 </div>
 
@@ -896,19 +1160,19 @@
     <div class="poem-card-genre">Poetry</div>
     <div class="poem-card-title">Sweet God</div>
     <div class="poem-card-author">TheQuietstorme</div>
-    <div class="poem-card-cta">Read poem</div>
+    <div class="poem-card-cta">Read poem →</div>
   </a>
   <a class="poem-card reveal" href="poems/the-garden-within.html">
     <div class="poem-card-genre">Poetry</div>
     <div class="poem-card-title">The Garden Within</div>
     <div class="poem-card-author">C. Louise</div>
-    <div class="poem-card-cta">Read poem</div>
+    <div class="poem-card-cta">Read poem →</div>
   </a>
   <a class="poem-card reveal" href="poems/ever-since-a-kid.html">
     <div class="poem-card-genre">Poetry</div>
     <div class="poem-card-title">Ever Since A Kid</div>
     <div class="poem-card-author">Userunknow___999</div>
-    <div class="poem-card-cta">Read poem</div>
+    <div class="poem-card-cta">Read poem →</div>
   </a>
 </div>
 
@@ -916,6 +1180,66 @@
 <div class="manifesto">
   <span class="manifesto-label">Vibe</span>
   <p class="manifesto-text">Poetry, prose, experiments. We love color and courage. Go loud, go floral.</p>
+</div>
+
+
+<!-- APP DOWNLOAD -->
+<div class="section-header" id="app">
+  <span class="section-label">Get The App</span>
+  <div class="section-rule"></div>
+  <span class="section-num">Android — Free</span>
+</div>
+
+<div class="app-section reveal">
+  <div class="app-left">
+    <div class="app-tag">Now Available</div>
+    <h2 class="app-title">as flowers<br><em>in your</em><br>pocket.</h2>
+    <p class="app-body">
+      Read all our poems, submit your work, and follow the magazine — all from the official as flowers Android app. Same brutalist aesthetic, same bold voices. Beautifully dark.
+    </p>
+    <a class="app-btn" href="asflowers.apk" download="asflowers.apk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download APK — Android
+    </a>
+    <p class="app-note">Free download. Enable "Install from unknown sources" in Android settings to install.</p>
+  </div>
+  <div class="app-right">
+    <div class="app-mockup">
+      <div class="mockup-screen">
+        <div class="mockup-nav">
+          <img src="aflogo.jpg" alt="af" class="mockup-logo">
+          <span>as flowers</span>
+        </div>
+        <div class="mockup-hero">
+          <div class="mockup-tag">A LITERARY MAGAZINE</div>
+          <div class="mockup-title">as<br>flow<br>ers.</div>
+          <div class="mockup-sub">A magazine where writings grow af</div>
+        </div>
+        <div class="mockup-card">
+          <div class="mockup-card-tag">POETRY — ISSUE 01</div>
+          <div class="mockup-card-title">Sweet God</div>
+          <div class="mockup-card-author">TheQuietstorme → READ</div>
+        </div>
+        <div class="mockup-card" style="opacity:0.7">
+          <div class="mockup-card-tag">POETRY — ISSUE 01</div>
+          <div class="mockup-card-title">The Garden Within</div>
+          <div class="mockup-card-author">C. Louise → READ</div>
+        </div>
+        <div class="mockup-card" style="opacity:0.4">
+          <div class="mockup-card-tag">POETRY — ISSUE 01</div>
+          <div class="mockup-card-title">Ever Since A Kid</div>
+          <div class="mockup-card-author">Userunknow___999 → READ</div>
+        </div>
+        <div class="mockup-bottom-nav">
+          <span class="mockup-nav-item active">HOME</span>
+          <span class="mockup-nav-item">POEMS</span>
+          <span class="mockup-nav-item">SUBMIT</span>
+          <span class="mockup-nav-item">ABOUT</span>
+        </div>
+      </div>
+      <div class="mockup-phone-border"></div>
+    </div>
+  </div>
 </div>
 
 <!-- SUBMIT -->
@@ -929,25 +1253,25 @@
   <div class="submit-left">
     <div class="submit-title">Send<br>your<br>work.</div>
     <p class="submit-body">
-      Poetry, prose, experiments. We love color and courage. Each issue blooms in its own time | We publish with deliberation, allowing work to take the shape it needs.
+      Poetry, prose, experiments. We love color and courage. Each issue blooms in its own time — we publish with deliberation, allowing work to take the shape it needs.
       <br><br>
       Simultaneous submissions welcome with immediate withdrawal notice. We read everything.
     </p>
-    <a class="submit-btn" href="https://tally.so/r/2E8L6L" target="_blank" rel="noopener">Submit via Tally </a>
+    <a class="submit-btn" href="https://tally.so/r/2E8L6L" target="_blank" rel="noopener">Submit via Tally →</a>
   </div>
   <div class="submit-right">
     <div class="guidelines-title">What We Publish</div>
     <div class="guideline-item">
       <span class="guideline-num">01.</span>
-      <span class="guideline-text">Poetry / any form, any length. We have no preferred form; we prefer precision and voice above all.</span>
+      <span class="guideline-text">Poetry — any form, any length. We have no preferred form; we prefer precision and voice above all.</span>
     </div>
     <div class="guideline-item">
       <span class="guideline-num">02.</span>
-      <span class="guideline-text">Prose / flash fiction, lyric essays, experiments. Work that resists easy categorization is very welcome.</span>
+      <span class="guideline-text">Prose — flash fiction, lyric essays, experiments. Work that resists easy categorization is very welcome.</span>
     </div>
     <div class="guideline-item">
       <span class="guideline-num">03.</span>
-      <span class="guideline-text">Experiments /” anything that doesn't fit neatly. If you're unsure, send it anyway.</span>
+      <span class="guideline-text">Experiments — anything that doesn't fit neatly. If you're unsure, send it anyway.</span>
     </div>
     <div class="guideline-item">
       <span class="guideline-num">04.</span>
@@ -980,8 +1304,8 @@
   <div class="about-right">
     <div class="founder-block">
       <div class="founder-name">Ashikur Rahman</div>
-      <div class="founder-role">Founder & Editor-in-Chief</div>
-      <p class="founder-bio">Curated by Ashikur Rahman | Building a home for bold voices.</p>
+      <div class="founder-role">Founder &amp; Editor-in-Chief</div>
+      <p class="founder-bio">Curated by Ashikur Rahman — building a home for bold voices.</p>
       <div class="socials-grid">
         <div class="social-item">
           <span class="social-platform">Instagram (Personal)</span>
@@ -1028,10 +1352,10 @@
     X: <a href="https://twitter.com/asflowersmag" target="_blank">@ASFLOWERSMAG</a><br>
     SUBMIT: <a href="https://tally.so/r/2E8L6L" target="_blank">TALLY.SO/R/2E8L6L</a>
   </div>
-  <div class="footer-right">© 2026 as flowers</div>
+  <div class="footer-right">© 2025 as flowers</div>
 </footer>
 
-<!-- WAX STAMP â†’ links directly to Tally -->
+<!-- WAX STAMP → links directly to Tally -->
 <a class="wax-stamp" href="https://tally.so/r/2E8L6L" target="_blank" rel="noopener" title="Submit your work">
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <circle cx="50" cy="50" r="46" fill="#660708" stroke="#1a1a1a" stroke-width="3"/>
