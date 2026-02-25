@@ -1055,6 +1055,220 @@
 
   .mockup-nav-item.active { color: var(--rose); }
 
+  /* ISSUE PREVIEW BUTTON */
+  .issue-preview-section {
+    padding: 4rem 3rem;
+    background: var(--obsidian);
+    border-bottom: var(--border-thick);
+    border-bottom-color: var(--rose);
+    text-align: center;
+  }
+
+  .issue-preview-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: inline-block;
+    border: 2px solid var(--rose);
+    padding: 0.25rem 0.8rem;
+  }
+
+  .issue-preview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .issue-mockup {
+    position: relative;
+    width: 280px;
+    height: 380px;
+    background: #0a0a0a;
+    border: 4px solid var(--rose);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 12px 12px 0 rgba(0,0,0,0.8);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .issue-mockup:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 16px 16px 0 rgba(0,0,0,0.8);
+  }
+
+  .issue-mockup::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.035) 79px, rgba(255,255,255,0.035) 80px);
+    pointer-events: none;
+  }
+
+  .issue-mockup-header {
+    background: rgba(255,255,255,0.05);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .issue-mockup-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--cream);
+    font-style: italic;
+  }
+
+  .issue-mockup-issue {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.5rem;
+    color: var(--rose);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .issue-mockup-content {
+    padding: 2rem 1.5rem;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .issue-mockup-number {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+    position: absolute;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .issue-mockup-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 0.9;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .issue-mockup-title span {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.2);
+  }
+
+  .issue-mockup-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .issue-mockup-red-line {
+    width: 40px;
+    height: 2px;
+    background: var(--rose);
+    margin: 1rem 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .issue-info {
+    max-width: 320px;
+    text-align: left;
+  }
+
+  .issue-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .issue-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .issue-description {
+    font-size: 0.65rem;
+    line-height: 1.8;
+    color: rgba(232,224,208,0.7);
+    margin-bottom: 2rem;
+  }
+
+  .issue-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--rose);
+    color: var(--cream);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.2rem 2.5rem;
+    border: 4px solid var(--rose);
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .issue-cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 4px -4px -4px 4px;
+    background: #3d0405;
+    z-index: -1;
+    transition: all 0.15s;
+  }
+
+  .issue-cta-btn:hover {
+    transform: translate(-2px, -2px);
+    color: var(--cream);
+  }
+
+  .issue-cta-btn:hover::after { inset: 6px -6px -6px 6px; }
+
+  .issue-cta-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .issue-preview-section { padding: 3rem 2rem; }
+    .issue-preview-container { flex-direction: column; gap: 2rem; }
+    .issue-info { text-align: center; max-width: 100%; }
+    .issue-mockup { width: 240px; height: 320px; }
+    .issue-mockup-title { font-size: 2rem; }
+    .issue-mockup-number { font-size: 6rem; }
+  }
+
   @media (max-width: 900px) {
     .app-section { grid-template-columns: 1fr; }
     .app-left { border-right: none; border-bottom: var(--border-thick); padding: 3rem 2rem; }
@@ -1176,6 +1390,40 @@
     <div class="poem-card-cta">Read poem →</div>
   </a>
 </div>
+
+<!-- ISSUE PREVIEW -->
+<section class="issue-preview-section">
+  <div class="issue-preview-label">Current Issue</div>
+  <div class="issue-preview-container">
+    <a href="issue01.html" class="issue-mockup">
+      <div class="issue-mockup-header">
+        <div class="issue-mockup-logo">as flowers</div>
+        <div class="issue-mockup-issue">issue 01</div>
+      </div>
+      <div class="issue-mockup-content">
+        <div class="issue-mockup-number">01</div>
+        <div class="issue-mockup-title">as<br><span>flow</span><span>ers</span></div>
+        <div class="issue-mockup-red-line"></div>
+        <div class="issue-mockup-subtitle">words that needed to exist</div>
+      </div>
+    </a>
+    
+    <div class="issue-info">
+      <h2 class="issue-title">Issue <em>01</em><br>First-Time Blooms</h2>
+      <p class="issue-description">
+        Our inaugural issue features ten incredible voices from around the world, each bringing their unique perspective to the page. This collection showcases the vibrant spectrum of contemporary poetry and prose.
+      </p>
+      <a href="issue01.html" class="issue-cta-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+          <path d="M12 8v8"/>
+          <path d="M8 12h8"/>
+        </svg>
+        Read Issue 01
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- MANIFESTO -->
 <div class="manifesto">
