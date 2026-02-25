@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>as flowers — issue 01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --white: #f5f0e8;
+  --cream: #e8e0d0;
+  --red: #c8271a;
+  --grey: #6a6a6a;
+  --mid: #2a2a2a;
+
+  /* Author color palettes */
+  --yuu-bg: #0d1117;
+  --yuu-accent: #4a90d9;
+  --yuu-text: #c8dff7;
+
+  --linda-bg: #1a0f0a;
+  --linda-accent: #d4845a;
+  --linda-text: #f0ddd0;
+
+  --swayam-bg: #0f0f14;
+  --swayam-accent: #8b7fd4;
+  --swayam-text: #d4d0f0;
+
+  --bergen-bg: #f7f3ec;
+  --bergen-accent: #2c4a3e;
+  --bergen-text: #1a2e28;
+
+  --smitha-bg: #12100e;
+  --smitha-accent: #c9a96e;
+  --smitha-text: #ede0c8;
+
+  --courtney-bg: #0a1209;
+  --courtney-accent: #6ab87a;
+  --courtney-text: #c8ecd0;
+
+  --brionna-bg: #0e0a14;
+  --brionna-accent: #c8271a;
+  --brionna-gold: #c8a84b;
+
+  --zs-bg: #111118;
+  --zs-accent: #e0e0f0;
+  --zs-text: #b0b0cc;
+
+  --jadavis-bg: #f5f0e3;
+  --jadavis-accent: #1a1a1a;
+  --jadavis-red: #8b1a0a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--black); font-family: 'EB Garamond', serif; overflow-x: hidden; cursor: crosshair; }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 1;
+}
+
+/* ── SOCIAL LINKS ── */
+a { text-decoration: none; }
+a.social { color: inherit; display: inline-flex; align-items: center; gap: 5px; transition: opacity 0.2s; }
+a.social:hover { opacity: 0.55; }
+.si { width: 11px; height: 11px; display: inline-block; flex-shrink: 0; }
+
+/* ── DL BUTTON ── */
+.dl-btn {
+  position: fixed; bottom: 28px; right: 28px; z-index: 10000;
+  background: var(--red); color: var(--white);
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  border: none; padding: 13px 20px; cursor: pointer;
+  display: flex; align-items: center; gap: 9px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.6);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.dl-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.6); }
+.dl-btn:active { transform: translate(1px,1px); box-shadow: 2px 2px 0 rgba(0,0,0,0.6); }
+
+.section-divider { width: 100%; height: 3px; background: var(--black); }
+
+/* ══════════ COVER ══════════ */
+.cover {
+  width: 100%; min-height: 100vh; background: var(--black);
+  display: grid; grid-template-rows: auto 1fr auto;
+  position: relative; overflow: hidden;
+}
+.cover::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.035) 79px, rgba(255,255,255,0.035) 80px);
+  pointer-events: none;
+}
+.cover-top {
+  padding: 26px 32px 14px; display: flex; justify-content: space-between;
+  align-items: flex-start; border-bottom: 1px solid rgba(255,255,255,0.1);
+  animation: fadeDown 0.9s ease both;
+}
+.cover-top-left { font-family: 'Space Mono', monospace; font-size: 9.5px; color: rgba(255,255,255,0.38); letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.9; }
+.cover-top-right { font-family: 'Space Mono', monospace; font-size: 9.5px; color: rgba(255,255,255,0.38); letter-spacing: 0.08em; text-align: right; line-height: 1.9; }
+.bloom-text { font-family: 'Unbounded', sans-serif; font-size: 8.5px; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); font-weight: 300; }
+.cover-main { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 32px; position: relative; }
+.issue-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--red); letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 22px; animation: fadeUp 0.9s 0.2s ease both; }
+.cover-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(70px, 18vw, 176px); font-weight: 900;
+  color: var(--white); line-height: 0.84; letter-spacing: -0.03em;
+  text-transform: lowercase; animation: fadeUp 0.9s 0.3s ease both;
+  position: relative; z-index: 2;
+}
+.cover-title span { display: block; color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.22); }
+.cover-number {
+  position: absolute; right: -24px; top: 50%; transform: translateY(-50%);
+  font-family: 'Unbounded', sans-serif; font-size: clamp(190px, 38vw, 460px);
+  font-weight: 900; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.05);
+  line-height: 1; pointer-events: none; user-select: none; animation: fadeUp 0.9s 0.1s ease both;
+}
+.cover-subtitle { font-family: 'EB Garamond', serif; font-size: clamp(15px, 2.8vw, 21px); font-style: italic; color: rgba(255,255,255,0.45); margin-top: 26px; letter-spacing: 0.05em; animation: fadeUp 0.9s 0.5s ease both; }
+.red-rule { width: 56px; height: 2px; background: var(--red); margin: 18px 0; animation: expandX 0.9s 0.6s ease both; }
+.cover-bottom {
+  padding: 18px 32px; border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex; justify-content: space-between; align-items: flex-end;
+  animation: fadeUp 0.9s 0.7s ease both;
+}
+.cover-socials { font-family: 'Space Mono', monospace; font-size: 8.5px; color: rgba(255,255,255,0.28); letter-spacing: 0.1em; line-height: 2.1; }
+.cover-eic { font-family: 'Space Mono', monospace; font-size: 8.5px; color: rgba(255,255,255,0.28); letter-spacing: 0.1em; text-align: right; line-height: 2.1; }
+
+/* ══════════ LETTER ══════════ */
+.letter-section {
+  background: var(--cream); padding: 80px 32px;
+  display: grid; grid-template-columns: 1fr 2fr; gap: 64px; align-items: start;
+}
+.letter-left { position: sticky; top: 40px; }
+.letter-label {
+  font-family: 'Unbounded', sans-serif; font-size: 8.5px; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--grey);
+  margin-bottom: 22px; display: flex; align-items: center; gap: 12px;
+}
+.letter-label::before { content: ''; display: block; width: 18px; height: 1px; background: var(--grey); }
+.letter-heading { font-family: 'Unbounded', sans-serif; font-size: clamp(26px,5vw,46px); font-weight: 900; text-transform: lowercase; line-height: 0.93; letter-spacing: -0.04em; color: var(--black); }
+.letter-heading em { display: block; font-family: 'EB Garamond', serif; font-weight: 400; font-style: italic; font-size: clamp(20px,4vw,36px); color: var(--grey); letter-spacing: 0; margin-top: 4px; }
+.letter-right { position: relative; }
+.letter-right::before { content: '['; position: absolute; left: -26px; top: 0; font-family: 'Space Mono', monospace; font-size: 76px; color: rgba(0,0,0,0.055); line-height: 1; pointer-events: none; }
+.letter-text { font-family: 'EB Garamond', serif; font-size: clamp(15.5px,1.9vw,18.5px); line-height: 1.78; color: var(--mid); }
+.letter-text p { margin-bottom: 1.45em; }
+.letter-text p:first-child::first-letter {
+  font-family: 'Unbounded', sans-serif; font-size: 4em; font-weight: 900;
+  float: left; line-height: 0.78; margin-right: 8px; margin-top: 10px; color: var(--black);
+}
+.letter-sig { margin-top: 38px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,0.14); }
+.letter-sig-name { font-family: 'EB Garamond', serif; font-style: italic; font-size: 21px; color: var(--black); }
+.letter-sig-title { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-top: 6px; }
+
+/* ══════════ TOC ══════════ */
+.toc-section { background: var(--black); padding: 56px 32px; }
+.toc-header { font-family: 'Space Mono', monospace; font-size: 8.5px; color: var(--red); letter-spacing: 0.38em; text-transform: uppercase; margin-bottom: 36px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.toc-item { border-top: 1px solid rgba(255,255,255,0.07); padding: 16px 20px 16px 0; cursor: default; transition: background 0.18s; }
+.toc-item:hover { background: rgba(255,255,255,0.025); padding-left: 6px; transition: padding 0.18s, background 0.18s; }
+.toc-num { font-family: 'Unbounded', sans-serif; font-size: 9px; font-weight: 700; color: var(--red); margin-bottom: 5px; letter-spacing: 0.12em; }
+.toc-title { font-family: 'EB Garamond', serif; font-size: 16.5px; font-style: italic; color: rgba(255,255,255,0.72); line-height: 1.25; margin-bottom: 3px; }
+.toc-author { font-family: 'Space Mono', monospace; font-size: 7.5px; color: rgba(255,255,255,0.25); letter-spacing: 0.09em; }
+
+/* ══════════ SHARED POEM ATOMS ══════════ */
+.poem-meta { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: 0.32em; text-transform: uppercase; margin-bottom: 18px; }
+.poem-rule { width: 36px; height: 2px; margin-bottom: 26px; }
+.poem-author-block { margin-top: 34px; padding-top: 18px; border-top: 1px solid rgba(128,128,128,0.2); }
+.author-name { font-family: 'EB Garamond', serif; font-style: italic; font-size: 15px; display: block; margin-bottom: 7px; }
+.author-socials { display: flex; gap: 14px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.08em; }
+
+/* ══════════ YUU IKEDA — midnight blue ══════════ */
+.yuu-page {
+  min-height: 100vh; background: var(--yuu-bg);
+  display: grid; grid-template-columns: 160px 1fr;
+  position: relative; overflow: hidden;
+}
+.yuu-sidebar {
+  background: rgba(74,144,217,0.08);
+  border-right: 1px solid rgba(74,144,217,0.15);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 36px 20px; position: relative; overflow: hidden;
+}
+.yuu-sidebar-num {
+  font-family: 'Unbounded', sans-serif; font-size: 100px; font-weight: 900;
+  color: rgba(74,144,217,0.06); position: absolute; bottom: 10px; left: -12px;
+  line-height: 1; pointer-events: none;
+}
+.yuu-sidebar-dot { width: 7px; height: 7px; background: var(--yuu-accent); border-radius: 50%; }
+.yuu-sidebar-label {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: 'Space Mono', monospace; font-size: 7px;
+  color: rgba(74,144,217,0.3); letter-spacing: 0.28em; text-transform: uppercase; align-self: center;
+}
+.yuu-content { padding: 80px 64px 80px 52px; display: flex; flex-direction: column; justify-content: center; }
+.yuu-content .poem-meta { color: var(--yuu-accent); }
+.yuu-content .poem-rule { background: var(--yuu-accent); }
+.yuu-title {
+  font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(26px, 4.5vw, 50px);
+  color: var(--yuu-text); line-height: 1; letter-spacing: -0.03em;
+  text-transform: lowercase; margin-bottom: 32px;
+}
+.yuu-body {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2vw, 20px);
+  line-height: 2; color: rgba(200,223,247,0.75); white-space: pre-line;
+  font-weight: 300;
+}
+.yuu-body .stanza { margin-bottom: 1.2em; display: block; }
+.yuu-author { color: rgba(74,144,217,0.5); border-top-color: rgba(74,144,217,0.15); }
+.yuu-author .author-name { color: var(--yuu-text); }
+.yuu-author .author-socials a { color: rgba(74,144,217,0.45); }
+.yuu-ghost {
+  position: absolute; font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(100px,18vw,240px); color: transparent;
+  -webkit-text-stroke: 1px rgba(74,144,217,0.04);
+  pointer-events: none; user-select: none; line-height: 1; right: -20px; bottom: -20px;
+}
+
+/* ══════════ LINDA M. CRATE — terracotta warmth ══════════ */
+.linda-page {
+  min-height: 100vh; background: var(--linda-bg);
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.linda-left {
+  padding: 80px 48px 80px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid rgba(212,132,90,0.12);
+  position: relative;
+}
+.linda-right {
+  padding: 80px 64px 80px 48px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+}
+.linda-title {
+  font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(28px, 5vw, 56px);
+  color: var(--linda-text); line-height: 0.92; letter-spacing: -0.04em;
+  text-transform: lowercase; margin-bottom: 0;
+}
+.linda-title-ghost {
+  font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(28px, 5vw, 56px);
+  color: transparent; -webkit-text-stroke: 1px rgba(212,132,90,0.15);
+  line-height: 0.92; letter-spacing: -0.04em; text-transform: lowercase;
+}
+.linda-body {
+  font-family: 'EB Garamond', serif; font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.95; color: rgba(240,221,208,0.72); white-space: pre-line;
+}
+.linda-page .poem-meta { color: var(--linda-accent); }
+.linda-page .poem-rule { background: var(--linda-accent); }
+.linda-author { color: rgba(212,132,90,0.4); border-top-color: rgba(212,132,90,0.12); }
+.linda-author .author-name { color: rgba(240,221,208,0.7); }
+.linda-author .author-socials a { color: rgba(212,132,90,0.4); }
+.linda-num {
+  position: absolute; font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: 180px; color: rgba(212,132,90,0.04);
+  bottom: -20px; right: -10px; line-height: 1; pointer-events: none;
+}
+.linda-rule-v { position: absolute; top: 0; right: 0; width: 1px; height: 100%; background: rgba(212,132,90,0.08); }
+
+/* ══════════ SWAYAM — deep violet ══════════ */
+.swayam-page {
+  min-height: 100vh; background: var(--swayam-bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 80px 40px;
+}
+.swayam-page::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(139,127,212,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.swayam-ghost-word {
+  position: absolute; font-family: 'Unbounded', sans-serif; font-weight: 900;
+  color: transparent; pointer-events: none; user-select: none; line-height: 1;
+}
+.swayam-inner {
+  max-width: 480px; width: 100%; text-align: center;
+  position: relative; z-index: 2;
+}
+.swayam-inner .poem-meta { color: rgba(139,127,212,0.5); text-align: center; margin-bottom: 14px; }
+.swayam-inner .poem-rule { background: var(--swayam-accent); margin: 0 auto 28px; opacity: 0.6; }
+.swayam-poem-title {
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+  font-size: clamp(22px, 3.5vw, 34px);
+  color: rgba(212,208,240,0.55);
+  margin-bottom: 44px; letter-spacing: 0.04em;
+  text-align: center;
+}
+.swayam-body {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2.2vw, 22px);
+  line-height: 2.1; color: rgba(212,208,240,0.78);
+  text-align: left; white-space: pre-line; font-weight: 300;
+}
+.swayam-author { color: rgba(139,127,212,0.35); border-top-color: rgba(139,127,212,0.12); margin-top: 36px; padding-top: 18px; }
+.swayam-author .author-name { color: rgba(212,208,240,0.55); font-size: 14px; }
+.swayam-author .author-socials a { color: rgba(139,127,212,0.35); }
+
+/* ══════════ BERGEN — sage green / parchment ══════════ */
+.bergen-page {
+  min-height: 100vh; background: var(--bergen-bg);
+  display: grid; grid-template-columns: 2fr 3fr;
+  position: relative; overflow: hidden;
+}
+.bergen-left {
+  padding: 80px 40px 80px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 2px solid rgba(44,74,62,0.15);
+}
+.bergen-right {
+  padding: 80px 64px 80px 52px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.bergen-big-title {
+  font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(44px, 8vw, 96px);
+  color: var(--bergen-text); line-height: 0.88; letter-spacing: -0.05em;
+  text-transform: lowercase; margin-bottom: 8px;
+}
+.bergen-big-dash {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(40px, 7vw, 80px);
+  color: rgba(44,74,62,0.3); line-height: 1;
+}
+.bergen-body {
+  font-family: 'EB Garamond', serif; font-size: clamp(15.5px, 2vw, 19px);
+  line-height: 1.9; color: rgba(26,46,40,0.8); white-space: pre-line;
+  position: relative; z-index: 2;
+}
+.bergen-page .poem-meta { color: var(--bergen-accent); opacity: 0.7; }
+.bergen-page .poem-rule { background: var(--bergen-accent); }
+.bergen-ghost {
+  position: absolute; font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(110px, 20vw, 260px); color: transparent;
+  -webkit-text-stroke: 1px rgba(44,74,62,0.06);
+  bottom: -30px; right: -30px; pointer-events: none; user-select: none; line-height: 1;
+}
+.bergen-author { border-top-color: rgba(44,74,62,0.15); margin-top: 40px; padding-top: 18px; }
+.bergen-author .author-name { color: var(--bergen-text); opacity: 0.7; }
+.bergen-author .author-socials a { color: rgba(44,74,62,0.4); }
+
+/* ══════════ SMITHA T — amber / black ══════════ */
+.smitha-page {
+  min-height: 100vh; background: var(--smitha-bg);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 80px 80px;
+}
+.smitha-page::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 80%, rgba(201,169,110,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.smitha-line-art {
+  position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, transparent, rgba(201,169,110,0.3) 30%, rgba(201,169,110,0.5) 60%, transparent);
+}
+.smitha-inner { max-width: 600px; width: 100%; position: relative; z-index: 2; }
+.smitha-inner .poem-meta { color: var(--smitha-accent); opacity: 0.7; }
+.smitha-inner .poem-rule { background: var(--smitha-accent); opacity: 0.6; }
+.smitha-title {
+  font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic;
+  font-size: clamp(28px, 4.5vw, 52px);
+  color: var(--smitha-text); line-height: 1.1; margin-bottom: 36px;
+}
+.smitha-body {
+  font-family: 'EB Garamond', serif; font-size: clamp(15px, 1.9vw, 19px);
+  line-height: 1.95; color: rgba(237,224,200,0.65); white-space: pre-line;
+}
+.smitha-author { border-top-color: rgba(201,169,110,0.12); }
+.smitha-author .author-name { color: rgba(237,224,200,0.55); }
+.smitha-author .author-socials a { color: rgba(201,169,110,0.35); }
+.smitha-ghost {
+  position: absolute; font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(100px, 18vw, 220px); color: transparent;
+  -webkit-text-stroke: 1px rgba(201,169,110,0.04);
+  top: -20px; right: -20px; pointer-events: none; user-select: none; line-height: 1;
+  font-weight: 700;
+}
+
+/* ══════════ COURTNEY LOUISE — forest green ══════════ */
+.courtney-page {
+  min-height: 100vh; background: var(--courtney-bg);
+  display: grid; grid-template-columns: 180px 1fr;
+  position: relative; overflow: hidden;
+}
+.courtney-sidebar {
+  background: rgba(106,184,122,0.06);
+  border-right: 1px solid rgba(106,184,122,0.12);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 36px 20px; position: relative; overflow: hidden;
+}
+.courtney-sidebar-num {
+  font-family: 'Unbounded', sans-serif; font-size: 100px; font-weight: 900;
+  color: rgba(106,184,122,0.05); position: absolute; bottom: 10px; left: -12px;
+  line-height: 1; pointer-events: none;
+}
+.courtney-sidebar-dot { width: 7px; height: 7px; background: var(--courtney-accent); border-radius: 50%; }
+.courtney-sidebar-label {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: 'Space Mono', monospace; font-size: 7px;
+  color: rgba(106,184,122,0.25); letter-spacing: 0.28em; text-transform: uppercase; align-self: center;
+}
+.courtney-content { padding: 80px 64px 80px 52px; display: flex; flex-direction: column; justify-content: center; }
+.courtney-content .poem-meta { color: var(--courtney-accent); opacity: 0.7; }
+.courtney-content .poem-rule { background: var(--courtney-accent); opacity: 0.6; }
+.courtney-title {
+  font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(24px, 4vw, 46px);
+  color: var(--courtney-text); line-height: 1; letter-spacing: -0.03em;
+  text-transform: lowercase; margin-bottom: 32px;
+}
+.courtney-body {
+  font-family: 'EB Garamond', serif; font-size: clamp(15px, 1.9vw, 18.5px);
+  line-height: 1.95; color: rgba(200,236,208,0.68); white-space: pre-line;
+}
+.courtney-author { border-top-color: rgba(106,184,122,0.12); }
+.courtney-author .author-name { color: rgba(200,236,208,0.65); }
+.courtney-author .author-socials a { color: rgba(106,184,122,0.38); }
+.courtney-ghost {
+  position: absolute; font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(90px,16vw,210px); color: transparent;
+  -webkit-text-stroke: 1px rgba(106,184,122,0.04);
+  bottom: -20px; right: -20px; pointer-events: none; user-select: none; line-height: 1;
+}
+
+/* ══════════ BRIONNA — cinematic split ══════════ */
+.brionna-page {
+  min-height: 100vh; background: var(--brionna-bg);
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.brionna-img-col {
+  position: relative; overflow: hidden;
+  background: #000;
+}
+.brionna-img-col img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  display: block; opacity: 0.75;
+  filter: contrast(1.1) saturate(0.7);
+}
+.brionna-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(14,10,20,0) 40%, rgba(14,10,20,1));
+}
+.brionna-text-col {
+  padding: 72px 56px; display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.brionna-text-col::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(200,39,26,0.015) 39px, rgba(200,39,26,0.015) 40px);
+  pointer-events: none;
+}
+.brionna-text-col .poem-meta { color: rgba(200,39,26,0.6); }
+.brionna-text-col .poem-rule { background: var(--brionna-accent); }
+.brionna-poem-title {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+  font-size: clamp(30px, 4.5vw, 56px);
+  color: rgba(245,240,232,0.9); line-height: 1.1; margin-bottom: 32px;
+  position: relative; z-index: 2;
+}
+.brionna-body {
+  font-family: 'EB Garamond', serif; font-size: clamp(14.5px, 1.8vw, 17.5px);
+  line-height: 2; color: rgba(245,240,232,0.62); white-space: pre-line;
+  position: relative; z-index: 2;
+}
+.br-red { color: var(--brionna-accent); font-style: italic; }
+.br-gold { color: var(--brionna-gold); font-style: italic; }
+.brionna-author { border-top-color: rgba(200,39,26,0.15); position: relative; z-index: 2; }
+.brionna-author .author-name { color: rgba(245,240,232,0.55); }
+.brionna-author .author-socials a { color: rgba(200,39,26,0.4); }
+
+/* ══════════ Z S — steel blue-grey ══════════ */
+.zs-page {
+  min-height: 100vh; background: var(--zs-bg);
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.zs-left {
+  padding: 80px 48px 80px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid rgba(176,176,204,0.08);
+  position: relative;
+}
+.zs-right {
+  padding: 80px 64px 80px 48px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.zs-big-num {
+  font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(120px, 22vw, 280px);
+  color: transparent; -webkit-text-stroke: 1px rgba(176,176,204,0.06);
+  line-height: 0.85; letter-spacing: -0.05em;
+  margin-bottom: 0; user-select: none;
+}
+.zs-title {
+  font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 40px);
+  color: var(--zs-text); line-height: 1; letter-spacing: -0.03em;
+  text-transform: lowercase; margin-top: -8px; margin-bottom: 20px;
+}
+.zs-page .poem-meta { color: rgba(176,176,204,0.45); }
+.zs-page .poem-rule { background: rgba(176,176,204,0.3); }
+.zs-body {
+  font-family: 'EB Garamond', serif; font-size: clamp(14.5px, 1.8vw, 17.5px);
+  line-height: 1.95; color: rgba(176,176,204,0.6); white-space: pre-line;
+}
+.zs-author { border-top-color: rgba(176,176,204,0.08); }
+.zs-author .author-name { color: rgba(224,224,240,0.5); }
+.zs-author .author-socials a { color: rgba(176,176,204,0.3); }
+.zs-ghost {
+  position: absolute; font-family: 'Unbounded', sans-serif; font-weight: 900;
+  font-size: clamp(100px, 18vw, 240px); color: transparent;
+  -webkit-text-stroke: 1px rgba(176,176,204,0.035);
+  pointer-events: none; user-select: none; line-height: 1;
+}
+
+/* ══════════ JA DAVIS — broadsheet newspaper ══════════ */
+.jadavis-page {
+  min-height: 100vh; background: var(--jadavis-bg);
+  display: grid; grid-template-columns: 1fr 2px 1fr;
+  position: relative; overflow: hidden;
+}
+.jadavis-gutter { background: var(--jadavis-accent); opacity: 0.8; }
+.jadavis-col {
+  padding: 56px 48px;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.jadavis-dateline {
+  font-family: 'Space Mono', monospace; font-size: 7.5px;
+  letter-spacing: 0.2em; color: var(--grey);
+  text-transform: uppercase; margin-bottom: 14px;
+  padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.jadavis-kicker {
+  font-family: 'Space Mono', monospace; font-size: 7.5px;
+  letter-spacing: 0.28em; color: var(--jadavis-red);
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.jadavis-masthead {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(38px, 7vw, 76px);
+  color: var(--jadavis-accent); line-height: 0.88;
+  text-transform: uppercase; letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  border-bottom: 3px solid var(--jadavis-accent); padding-bottom: 14px;
+}
+.jadavis-pull {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(15px, 2.2vw, 20px);
+  color: var(--jadavis-accent); line-height: 1.4;
+  border-left: 3px solid var(--jadavis-red); padding-left: 14px;
+  margin: 18px 0;
+}
+.jadavis-rule { width: 100%; height: 1px; background: rgba(0,0,0,0.15); margin: 14px 0; }
+.jadavis-body {
+  font-family: 'EB Garamond', serif; font-size: clamp(14px, 1.7vw, 16.5px);
+  line-height: 1.75; color: var(--mid); white-space: pre-line;
+  flex: 1;
+}
+.jadavis-author { border-top-color: rgba(0,0,0,0.1); margin-top: 20px; padding-top: 14px; }
+.jadavis-author .author-name { color: var(--mid); }
+.jadavis-author .author-socials a { color: var(--grey); }
+
+/* ══════════ CONTRIBUTORS ══════════ */
+.contrib-section { background: var(--black); padding: 44px 32px; border-top: 3px solid var(--red); }
+.contrib-label { font-family: 'Space Mono', monospace; font-size: 8.5px; color: var(--red); letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 28px; }
+.contrib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); }
+.contrib-item { border-top: 1px solid rgba(255,255,255,0.065); padding: 16px 16px 16px 0; }
+.contrib-name { font-family: 'EB Garamond', serif; font-style: italic; font-size: 16.5px; color: rgba(255,255,255,0.65); margin-bottom: 7px; }
+.contrib-handles { display: flex; gap: 10px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 8px; }
+.contrib-handles a { color: rgba(255,255,255,0.25); }
+
+.colophon {
+  background: var(--red); padding: 26px 32px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
+}
+.colophon-title { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 900; color: var(--white); letter-spacing: -0.02em; text-transform: lowercase; }
+.colophon-meta { font-family: 'Space Mono', monospace; font-size: 8.5px; color: rgba(245,240,232,0.58); letter-spacing: 0.1em; text-align: right; line-height: 2; }
+.colophon-meta a { color: rgba(245,240,232,0.58); }
+
+/* ══════════ ANIMATIONS ══════════ */
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+@keyframes expandX { from { width:0; } to { width:56px; } }
+
+/* ══════════ RESPONSIVE ══════════ */
+@media (max-width: 768px) {
+  .letter-section { grid-template-columns: 1fr; gap: 28px; }
+  .letter-left { position: static; }
+  .letter-right::before { display: none; }
+  .yuu-page, .courtney-page { grid-template-columns: 1fr; }
+  .yuu-sidebar, .courtney-sidebar { display: none; }
+  .yuu-content, .courtney-content { padding: 56px 28px; }
+  .linda-page { grid-template-columns: 1fr; }
+  .linda-left { padding: 56px 28px 20px; border-right: none; border-bottom: 1px solid rgba(212,132,90,0.12); }
+  .linda-right { padding: 24px 28px 56px; }
+  .bergen-page { grid-template-columns: 1fr; }
+  .bergen-left { padding: 56px 28px 20px; border-right: none; border-bottom: 2px solid rgba(44,74,62,0.15); }
+  .bergen-right { padding: 24px 28px 56px; }
+  .brionna-page { grid-template-columns: 1fr; }
+  .brionna-img-col { height: 45vh; }
+  .brionna-text-col { padding: 40px 28px; }
+  .zs-page { grid-template-columns: 1fr; }
+  .zs-left { padding: 56px 28px 20px; border-right: none; border-bottom: 1px solid rgba(176,176,204,0.08); }
+  .zs-right { padding: 24px 28px 56px; }
+  .jadavis-page { grid-template-columns: 1fr; }
+  .jadavis-gutter { display: none; }
+  .jadavis-col { padding: 40px 28px; }
+  .smitha-page { padding: 56px 28px; }
+  .swayam-page { padding: 56px 24px; }
+  .colophon { flex-direction: column; align-items: flex-start; }
+  .colophon-meta { text-align: left; }
+  .dl-btn { bottom: 14px; right: 14px; }
+}
+
+@media print {
+  /* Hide interactive elements */
+  .dl-btn { display: none !important; }
+  body::before { display: none; }
+  
+  /* Ensure color and background preservation */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  
+  /* Page breaks for each section */
+  .cover, .letter-section, .toc-section, .yuu-page, .linda-page, .swayam-page,
+  .bergen-page, .smitha-page, .courtney-page, .brionna-page, .zs-page, .jadavis-page,
+  .contrib-section, .colophon
+  { page-break-after: always; break-after: page; }
+  
+  /* Fix positioning issues */
+  .letter-left { position: static !important; }
+  .section-divider { display: none; }
+  
+  /* Remove animations and transitions */
+  * { animation: none !important; transition: none !important; }
+  
+  /* Ensure proper text rendering */
+  .cover-title span, .cover-number, .yuu-ghost, .linda-num, .bergen-ghost,
+  .smitha-ghost, .courtney-ghost, .zs-ghost, .brionna-ghost
+  { -webkit-text-stroke: 1px rgba(255,255,255,0.3) !important; color: rgba(255,255,255,0.8) !important; }
+  
+  /* Fix layout issues */
+  .cover { min-height: 100vh; height: 100vh; }
+  .yuu-page, .linda-page, .swayam-page, .bergen-page, .smitha-page,
+  .courtney-page, .brionna-page, .zs-page, .jadavis-page
+  { min-height: 100vh; height: 100vh; overflow: visible !important; }
+  
+  /* Ensure proper margins */
+  @page { margin: 0.5in; size: A4; }
+  
+  /* Fix grid layouts for print */
+  .letter-section { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .yuu-page, .courtney-page { grid-template-columns: 1fr !important; }
+  .yuu-sidebar, .courtney-sidebar { display: none !important; }
+  .linda-page { grid-template-columns: 1fr !important; }
+  .bergen-page { grid-template-columns: 1fr !important; }
+  .brionna-page { grid-template-columns: 1fr !important; }
+  .zs-page { grid-template-columns: 1fr !important; }
+  .jadavis-page { grid-template-columns: 1fr !important; }
+  .jadavis-gutter { display: none !important; }
+  
+  /* Adjust padding for print */
+  .yuu-content, .courtney-content { padding: 2rem !important; }
+  .linda-left, .linda-right { padding: 2rem !important; }
+  .bergen-left, .bergen-right { padding: 2rem !important; }
+  .smitha-page { padding: 2rem !important; }
+  .swayam-page { padding: 2rem !important; }
+  .brionna-text-col { padding: 2rem !important; }
+  .zs-left, .zs-right { padding: 2rem !important; }
+  .jadavis-col { padding: 2rem !important; }
+  
+  /* Ensure text is visible */
+  .letter-text { color: #2a2a2a !important; }
+  .toc-title { color: #333 !important; }
+  .author-name { color: #333 !important; }
+  
+  /* Remove hover effects */
+  .toc-item:hover { background: transparent !important; padding-left: 0 !important; }
+  
+  /* Fix font sizes for print */
+  .cover-title { font-size: 120px !important; }
+  .cover-number { font-size: 300px !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG ICONS -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="x" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.632 5.906-5.632z"/>
+  </symbol>
+  <symbol id="download" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+  </symbol>
+</svg>
+
+<!-- DOWNLOAD PDF BUTTON -->
+<a href="af01.pdf" class="dl-btn" download>
+  <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;">
+    <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+  </svg>
+  download
+</a>
+
+<script>
+function downloadPDF() {
+  // Create a new window for printing
+  const printWindow = window.open('', '_blank');
+  
+  // Get the current page content
+  const content = document.documentElement.outerHTML;
+  
+  // Write the content to the new window
+  printWindow.document.write(content);
+  
+  // Wait for the content to load, then trigger print
+  printWindow.document.close();
+  printWindow.focus();
+  
+  setTimeout(() => {
+    printWindow.print();
+    
+    // Close the print window after printing
+    setTimeout(() => {
+      printWindow.close();
+    }, 1000);
+  }, 500);
+}
+</script>
+
+<!-- ════════════════════════════════════════
+     COVER
+════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-top-left">
+      as flowers magazine<br>est. 2025 — ongoing<br>
+      <span class="bloom-text">bloom</span>
+    </div>
+    <div class="cover-top-right">
+      <a class="social" href="https://instagram.com/asflowersmagazine" target="_blank" style="color:rgba(255,255,255,0.38);">
+        <svg class="si"><use href="#ig"/></svg>@asflowersmagazine
+      </a><br>
+      <a class="social" href="https://x.com/asflowersmag" target="_blank" style="color:rgba(255,255,255,0.38);">
+        <svg class="si"><use href="#x"/></svg>@asflowersmag
+      </a><br>
+      first-time blooms
+    </div>
+  </div>
+  <div class="cover-main">
+    <div class="cover-number">01</div>
+    <p class="issue-label">issue 01 — 1st-time blooms</p>
+    <h1 class="cover-title">as<br><span>flow</span><span>ers</span></h1>
+    <div class="red-rule"></div>
+    <p class="cover-subtitle">words that needed to exist</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-socials">
+      <a class="social" href="https://instagram.com/asflowersmagazine" target="_blank" style="color:rgba(255,255,255,0.28);"><svg class="si"><use href="#ig"/></svg>@asflowersmagazine</a><br>
+      <a class="social" href="https://x.com/asflowersmag" target="_blank" style="color:rgba(255,255,255,0.28);"><svg class="si"><use href="#x"/></svg>@asflowersmag</a>
+    </div>
+    <div class="cover-eic">
+      editor-in-chief · ashikur<br>
+      <a class="social" href="https://instagram.com/a5hikur" target="_blank" style="color:rgba(255,255,255,0.28);"><svg class="si"><use href="#ig"/></svg>@a5hikur</a>
+      &thinsp;
+      <a class="social" href="https://x.com/ashikurraxman" target="_blank" style="color:rgba(255,255,255,0.28);"><svg class="si"><use href="#x"/></svg>@ashikurraxman</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════
+     LETTER FROM THE EDITOR
+════════════════════════════════════════ -->
+<section class="letter-section">
+  <div class="letter-left">
+    <p class="letter-label">letter from the editor</p>
+    <h2 class="letter-heading">the<br>ground<br><em>is soft.</em></h2>
+  </div>
+  <div class="letter-right">
+    <div class="letter-text">
+      <p>Inaugurations are terrifying. People say they adore them, the tiny seed that has not yet burgeoned. The truth is that we all loiter at the starting line. I inaugurated As Flowers after doing that for years. It was not because I finally felt primed. I was just tired of waiting.</p>
+      <p>The poets in this issue did not come with credentials. Some sent work at 3 AM. One note said, "I've never shown this to anyone." That honesty is what matters to me. We are not trying to show off. We are just capturing the moment someone is brave enough to share their feelings.</p>
+      <p>As Flowers is not here to tell you what poetry should be. These poems do not all have a singular purpose. Most want to hurt and heal at the same time because that is how our minds work. We feel different things all at once and we do not always get the answers we want.</p>
+      <p>To our first readers, you are witnessing something private. We are all in this together without a map. We all agree that words still matter.</p>
+      <p>The ground we are standing on is soft and uneven. Be careful where you step.</p>
+    </div>
+    <div class="letter-sig">
+      <p class="letter-sig-name">With thanks and a little nervousness,<br><br>ashikur</p>
+      <p class="letter-sig-title">Editor-in-Chief, as flowers magazine</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════
+     TABLE OF CONTENTS
+════════════════════════════════════════ -->
+<section class="toc-section">
+  <p class="toc-header">contents — issue 01</p>
+  <div class="toc-grid">
+    <div class="toc-item"><div class="toc-num">01</div><div class="toc-title">A Wasp Gives Up Life</div><div class="toc-author">Nirob Dhar</div></div>
+    <div class="toc-item"><div class="toc-num">02</div><div class="toc-title">The Signal of Dawn</div><div class="toc-author">Yuu Ikeda</div></div>
+    <div class="toc-item"><div class="toc-num">03</div><div class="toc-title">Full of Spring</div><div class="toc-author">Yuu Ikeda</div></div>
+    <div class="toc-item"><div class="toc-num">04</div><div class="toc-title">a dead garden</div><div class="toc-author">Linda M. Crate</div></div>
+    <div class="toc-item"><div class="toc-num">05</div><div class="toc-title">the final act of love</div><div class="toc-author">Swayam</div></div>
+    <div class="toc-item"><div class="toc-num">06</div><div class="toc-title">i like to watch butterflies dance</div><div class="toc-author">Linda M. Crate</div></div>
+    <div class="toc-item"><div class="toc-num">07</div><div class="toc-title">blooms</div><div class="toc-author">Linda M. Crate</div></div>
+    <div class="toc-item"><div class="toc-num">08</div><div class="toc-title">Almost—</div><div class="toc-author">Bergen</div></div>
+    <div class="toc-item"><div class="toc-num">09</div><div class="toc-title">A Home Built on Illusion</div><div class="toc-author">Smitha T (Aarohi)</div></div>
+    <div class="toc-item"><div class="toc-num">10</div><div class="toc-title">The Garden Within</div><div class="toc-author">Courtney Louise</div></div>
+    <div class="toc-item"><div class="toc-num">11</div><div class="toc-title">Sweet God</div><div class="toc-author">Brionna Warner</div></div>
+    <div class="toc-item"><div class="toc-num">12</div><div class="toc-title">Junk Draw</div><div class="toc-author">Z S</div></div>
+    <div class="toc-item"><div class="toc-num">13</div><div class="toc-title">Lost Angels, Lost Demons</div><div class="toc-author">Z S</div></div>
+    <div class="toc-item"><div class="toc-num">14</div><div class="toc-title">Ever Since a Kid</div><div class="toc-author">Z S</div></div>
+    <div class="toc-item"><div class="toc-num">15</div><div class="toc-title">Open Book</div><div class="toc-author">JA Davis</div></div>
+    <div class="toc-item"><div class="toc-num">16</div><div class="toc-title">My Reach Makes Love (Reprise)</div><div class="toc-author">JA Davis</div></div>
+  </d iv>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 1 — A Wasp Gives Up Life · NIROB DHAR ════ -->
+<article style="min-height:100vh;background:#090e09;display:grid;grid-template-columns:180px 1fr;position:relative;overflow:hidden;">
+  <div style="background:rgba(122,184,122,0.07);border-right:1px solid rgba(122,184,122,0.15);display:flex;flex-direction:column;justify-content:space-between;padding:36px 20px;position:relative;overflow:hidden;">
+    <div style="width:7px;height:7px;background:#7ab87a;border-radius:50%;"></div>
+    <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Space Mono',monospace;font-size:7px;color:rgba(122,184,122,0.28);letter-spacing:0.28em;text-transform:uppercase;align-self:center;">as flowers — issue 01</div>
+    <div style="font-family:'Unbounded',sans-serif;font-size:88px;font-weight:900;color:rgba(122,184,122,0.06);position:absolute;bottom:10px;left:-12px;line-height:1;pointer-events:none;">01</div>
+  </div>
+  <div style="padding:80px 60px 80px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(90px,16vw,200px);color:transparent;-webkit-text-stroke:1px rgba(122,184,122,0.04);bottom:-20px;right:-20px;pointer-events:none;user-select:none;line-height:1;">light</div>
+    <p style="font-family:'Space Mono',monospace;font-size:7.5px;color:rgba(122,184,122,0.6);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:18px;position:relative;z-index:2;">poem 01</p>
+    <div style="width:36px;height:2px;background:#7ab87a;margin-bottom:26px;position:relative;z-index:2;"></div>
+    <h2 style="font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(22px,3.8vw,40px);text-transform:lowercase;line-height:1;letter-spacing:-0.03em;color:#d0ecd0;margin-bottom:32px;position:relative;z-index:2;">a wasp<br>gives up life</h2>
+    <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(15px,2vw,20px);line-height:2.1;color:rgba(208,236,208,0.75);white-space:pre-line;position:relative;z-index:2;">A wasp gives up life in search of light,
+The music of nature attracts me that way,
+gives a sheer delight,
+The flowing rivers and mountains highs
+oh the bright sunny days
+and cold bright moon lights.
+
+This Zanskar monk lived life to its fullest
+without being a sensory slave,
+but this beauty I can&#39;t resist.</div>
+    <div style="margin-top:32px;padding-top:18px;border-top:1px solid rgba(122,184,122,0.15);position:relative;z-index:2;">
+      <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:rgba(208,236,208,0.6);display:block;margin-bottom:6px;">Nirob Dhar</span>
+      <div style="display:flex;gap:12px;font-family:'Space Mono',monospace;font-size:8px;">
+        <a class="social" href="https://www.instagram.com/__ni_r/" target="_blank" style="color:rgba(122,184,122,0.42);"><svg class="si"><use href="#ig"/></svg>@__ni_r</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 02 — The Signal of Dawn · YUU IKEDA ════ -->
+<article class="yuu-page">
+  <div class="yuu-sidebar">
+    <div class="yuu-sidebar-dot"></div>
+    <div class="yuu-sidebar-label">as flowers — issue 01</div>
+    <div class="yuu-sidebar-num">02</div>
+  </div>
+  <div class="yuu-content">
+    <p class="poem-meta">poem 02</p>
+    <div class="poem-rule" style="background:var(--yuu-accent);"></div>
+    <h2 class="yuu-title">the signal<br>of dawn</h2>
+    <div class="yuu-body">It is about to bloom somewhere.
+I can't see it,
+I can't hear it.
+
+But,
+I can feel it.
+
+Dawn is coming to me,
+with every fragment of my past.
+
+As if it shows me the future made by
+these fragments of my past,
+dawn is coming to me.
+
+The signal is swaying,
+gleaming,
+like a candle does.
+
+Then, someday,
+it will glow
+like the blaze in a fireplace does.</div>
+    <div class="poem-author-block yuu-author">
+      <span class="author-name">Yuu Ikeda</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/yuunnnn77" target="_blank"><svg class="si"><use href="#ig"/></svg>@yuunnnn77</a>
+        <a class="social" href="https://x.com/yuunnnn77" target="_blank"><svg class="si"><use href="#x"/></svg>@yuunnnn77</a>
+      </div>
+    </div>
+  </div>
+  <div class="yuu-ghost">dawn</div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 03 — Full of Spring · YUU IKEDA ════ -->
+<article class="yuu-page">
+  <div class="yuu-sidebar">
+    <div class="yuu-sidebar-dot"></div>
+    <div class="yuu-sidebar-label">as flowers — issue 01</div>
+    <div class="yuu-sidebar-num">03</div>
+  </div>
+  <div class="yuu-content">
+    <p class="poem-meta">poem 03</p>
+    <div class="poem-rule" style="background:var(--yuu-accent);"></div>
+    <h2 class="yuu-title">full of spring</h2>
+    <div class="yuu-body">Spring melody is resounding
+on the road that I'm walking.
+Vague something is flickering,
+as if it tries to remind me of what I've hoping
+for a long time.
+Winter incantation is about to vanish.
+I continue to walk,
+feeling a veil of perfumed signals of spring.</div>
+    <div class="poem-author-block yuu-author">
+      <span class="author-name">Yuu Ikeda</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/yuunnnn77" target="_blank"><svg class="si"><use href="#ig"/></svg>@yuunnnn77</a>
+        <a class="social" href="https://x.com/yuunnnn77" target="_blank"><svg class="si"><use href="#x"/></svg>@yuunnnn77</a>
+      </div>
+    </div>
+  </div>
+  <div class="yuu-ghost">spring</div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 04 — a dead garden · LINDA M. CRATE ════ -->
+<article class="linda-page">
+  <div class="linda-left">
+    <p class="poem-meta" style="color:var(--linda-accent); opacity:0.7;">poem 04</p>
+    <div class="poem-rule" style="background:var(--linda-accent); margin-bottom:28px;"></div>
+    <h2 class="linda-title">a dead<br>garden</h2>
+    <h2 class="linda-title-ghost" style="margin-top:6px;">————</h2>
+    <div class="poem-author-block linda-author" style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(212,132,90,0.12);">
+      <span class="author-name" style="color:rgba(240,221,208,0.65);">Linda M. Crate</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/authorlindamcrate" target="_blank" style="color:rgba(212,132,90,0.4);"><svg class="si"><use href="#ig"/></svg>@authorlindamcrate</a>
+        <a class="social" href="https://x.com/thysilverdoe" target="_blank" style="color:rgba(212,132,90,0.4);"><svg class="si"><use href="#x"/></svg>@thysilverdoe</a>
+      </div>
+    </div>
+  </div>
+  <div class="linda-right">
+    <div class="linda-num">04</div>
+    <div class="linda-body">the blooms from our
+garden will never be again,
+once this made me sad;
+
+but i think i'm over
+it now—
+
+twenty years of sisterhood,
+kinship, laughter, love,
+secrets, truths, anger, pain,
+healing, sadness, journeys,
+magic, adventures;
+
+each of it gone in a blink of an eye—
+
+all because you refuse to
+communicate,
+because you refuse to reciprocate
+the love given you;
+
+maybe one day you'll realize
+i wasn't trying to fight i simply
+wanted you to look in the
+reflection of our waters and realize
+something needed to change.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 05 — Untitled · SWAYAM ════ -->
+<article class="swayam-page">
+  <div class="swayam-ghost-word" style="font-size:clamp(130px,24vw,300px); -webkit-text-stroke:1px rgba(139,127,212,0.05); top:-40px; left:50%; transform:translateX(-50%); white-space:nowrap;">free</div>
+  <div class="swayam-ghost-word" style="font-size:clamp(60px,10vw,130px); -webkit-text-stroke:1px rgba(139,127,212,0.03); bottom:-20px; right:5%; white-space:nowrap;">love</div>
+  <div class="swayam-inner">
+    <p class="poem-meta" style="color:rgba(139,127,212,0.45); text-align:center; margin-bottom:12px;">poem 05</p>
+    <div class="poem-rule" style="background:rgba(139,127,212,0.4); margin:0 auto 24px;"></div>
+    <h2 class="swayam-poem-title">the final act of love</h2>
+    <div class="swayam-body">Everytime when somebody asked me
+for the final act of love —
+what did you do?
+
+I told them
+I opened those handcuffs
+and set them free
+
+The deepest wounds I got
+were never leaving me
+
+It's not the matter of faith
+that disturbed me everytime.
+
+But it was always about
+the one sided efforts
+that killed me...</div>
+    <div class="poem-author-block swayam-author">
+      <span class="author-name" style="color:rgba(212,208,240,0.5);">Swayam</span>
+      <div class="author-socials" style="justify-content:flex-start;">
+        <a class="social" href="https://instagram.com/swayam_words_" target="_blank" style="color:rgba(139,127,212,0.35);"><svg class="si"><use href="#ig"/></svg>@swayam_words</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 05 — i like to watch butterflies dance · LINDA M. CRATE ════ -->
+<article class="linda-page">
+  <div class="linda-left">
+    <p class="poem-meta" style="color:var(--linda-accent); opacity:0.7;">poem 06</p>
+    <div class="poem-rule" style="background:var(--linda-accent); margin-bottom:28px;"></div>
+    <h2 class="linda-title">i like to<br>watch<br>butterflies<br>dance</h2>
+    <div class="poem-author-block linda-author" style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(212,132,90,0.12);">
+      <span class="author-name" style="color:rgba(240,221,208,0.65);">Linda M. Crate</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/authorlindamcrate" target="_blank" style="color:rgba(212,132,90,0.4);"><svg class="si"><use href="#ig"/></svg>@authorlindamcrate</a>
+        <a class="social" href="https://x.com/thysilverdoe" target="_blank" style="color:rgba(212,132,90,0.4);"><svg class="si"><use href="#x"/></svg>@thysilverdoe</a>
+      </div>
+    </div>
+  </div>
+  <div class="linda-right">
+    <div class="linda-num">06</div>
+    <div class="linda-body">sometimes the blooms
+are frequent and loud,
+so many flowers that you
+could drown in them;
+
+other times of my life
+they are soft and quiet
+a little color or fragrance
+here and there to tide me
+over for a while—
+
+i prefer when it's a garden,
+like to watch the butterflies dance;
+
+but maybe both are
+necessary
+for me to grow myself in
+my magic.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 07 — blooms · LINDA M. CRATE ════ -->
+<article class="linda-page">
+  <div class="linda-left">
+    <p class="poem-meta" style="color:var(--linda-accent); opacity:0.7;">poem 07</p>
+    <div class="poem-rule" style="background:var(--linda-accent); margin-bottom:28px;"></div>
+    <h2 class="linda-title">blooms</h2>
+    <div class="poem-author-block linda-author" style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(212,132,90,0.12);">
+      <span class="author-name" style="color:rgba(240,221,208,0.65);">Linda M. Crate</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/authorlindamcrate" target="_blank" style="color:rgba(212,132,90,0.4);"><svg class="si"><use href="#ig"/></svg>@authorlindamcrate</a>
+        <a class="social" href="https://x.com/thysilverdoe" target="_blank" style="color:rgba(212,132,90,0.4);"><svg class="si"><use href="#x"/></svg>@thysilverdoe</a>
+      </div>
+    </div>
+  </div>
+  <div class="linda-right">
+    <div class="linda-num">07</div>
+    <div class="linda-body">i see the blooms of the past,
+some of them are certainly
+quite beautiful;
+
+i remind myself that i haven't
+seen the blooms of the
+future yet—
+
+perhaps if i let go of these
+dead flowers,
+
+i can find a world of more color;
+
+but i have always had difficulty
+with letting go—
+
+i never want the love,
+the laughter, the goodness to
+fade.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 08 — Almost— · BERGEN ════ -->
+<article class="bergen-page">
+  <div class="bergen-left">
+    <p class="poem-meta" style="color:var(--bergen-accent); opacity:0.6;">poem 08</p>
+    <div class="poem-rule" style="background:var(--bergen-accent);"></div>
+    <h2 class="bergen-big-title">al<br>most</h2>
+    <span class="bergen-big-dash">—</span>
+    <div class="poem-author-block bergen-author" style="margin-top:auto;">
+      <span class="author-name" style="color:var(--bergen-text); opacity:0.65;">Bergen</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/poetryinplaid_" target="_blank" style="color:rgba(44,74,62,0.45);"><svg class="si"><use href="#ig"/></svg>@poetryinplaid_</a>
+      </div>
+    </div>
+  </div>
+  <div class="bergen-right">
+    <div class="bergen-ghost">close</div>
+    <div class="bergen-body">I miss you most in the quiet,
+when the air turns colder
+and I know you're somewhere smiling
+because Christmas is creeping closer—
+your favorite season,
+your kind of magic.
+
+I still remember how your eyes
+lit up brighter than the lights you hung,
+how you would make sure every gift is wrapped perfect.
+
+And me?
+I've always belonged to Halloween—
+the shadows, the mystery,
+the way October smells like change
+and endings you can almost touch.
+I loved the dark. You loved the glow.
+
+We couldn't have been more different—
+your world coated in red and gold warmth,
+mine painted in moonlight and the stars—
+and yet our favorite days
+were only a few months apart,
+close enough to brush fingertips
+but never to fully hold hands.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 09 — A Home Built on Illusion · SMITHA T ════ -->
+<article class="smitha-page">
+  <div class="smitha-line-art"></div>
+  <div class="smitha-ghost">home</div>
+  <div class="smitha-inner">
+    <p class="poem-meta" style="color:var(--smitha-accent); opacity:0.6;">poem 09 </p>
+    <div class="poem-rule" style="background:var(--smitha-accent); opacity:0.5; margin-bottom:28px;"></div>
+    <h2 class="smitha-title">A Home Built<br>on Illusion</h2>
+    <div class="smitha-body">Who are you?
+Why did you walk into the midst of my silent storms
+when agony had built a home in my chest
+and yearning was the only language I spoke?
+
+You made me believe life was finally making sense,
+as if the sun had somehow found its way to me.
+You wrapped me in the illusion
+that you were my home
+until the day you weren't.
+
+You built a castle out of false promises,
+flickers of hope,
+and fleeting emotions.
+And then, one ordinary day,
+you arrived like a violent storm
+and shattered that fragile castle,
+leaving me homeless again.
+
+You came only to give me a deeper pain
+than I had ever known.
+
+I had slowly begun learning your vocabulary
+your ways, your warmth, your world
+but the grief of unlearning all of it
+made my bones weak
+and left my heart in ruins.</div>
+    <div class="poem-author-block smitha-author" style="border-top:1px solid rgba(201,169,110,0.1); margin-top:32px; padding-top:18px;">
+      <span class="author-name" style="color:rgba(237,224,200,0.5);">Smitha T (Aarohi)</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/poems_by_aarohi" target="_blank" style="color:rgba(201,169,110,0.32);"><svg class="si"><use href="#ig"/></svg>@poems_by_aarohi</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 10 — The Garden Within · COURTNEY LOUISE ════ -->
+<article class="courtney-page">
+  <div class="courtney-sidebar">
+    <div class="courtney-sidebar-dot"></div>
+    <div class="courtney-sidebar-label">as flowers — issue 01</div>
+    <div class="courtney-sidebar-num">10</div>
+  </div>
+  <div class="courtney-content">
+    <p class="poem-meta">poem 10</p>
+    <div class="poem-rule" style="background:var(--courtney-accent); opacity:0.6;"></div>
+    <h2 class="courtney-title">the garden<br>within</h2>
+    <div class="courtney-body">I am a quiet, light forest of bones,
+roots twisting through the soil of myself,
+petals pressing against the ribs of night,
+aching toward some sun I cannot name.
+
+I fracture like stone warmed by the sun,
+my edges scattering, dissolving,
+and from the fissures, green rises
+tender, relentless, impossible to deny.
+
+Growth hums in the hollow of my chest,
+a pulse I cannot ignore,
+the trembling green of new leaves
+sprouting from yesterday's ash.
+
+I bloom in the fractures,
+drink the rain that fell on my silence,
+and in every breaking,
+a small miracle unfolds,
+a leaf, a voice, a heartbeat
+that refuses to be contained.
+
+I am both fragile and infinite,
+a garden of storms and sunlight,
+remembering that even the shattered
+can root, can rise, can bloom again.</div>
+    <div class="poem-author-block courtney-author" style="border-top:1px solid rgba(106,184,122,0.1); margin-top:32px; padding-top:18px;">
+      <span class="author-name" style="color:rgba(200,236,208,0.6);">Courtney Louise</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/hersoftspokensoul" target="_blank" style="color:rgba(106,184,122,0.36);"><svg class="si"><use href="#ig"/></svg>@hersoftspokensoul</a>
+      </div>
+    </div>
+  </div>
+  <div class="courtney-ghost">bloom</div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 11 — Sweet God · BRIONNA WARNER ════ -->
+<article class="brionna-page">
+
+  <div class="brionna-text-col">
+    <p class="poem-meta" style="color:rgba(200,39,26,0.55);">poem 11</p>
+    <div class="poem-rule" style="background:var(--brionna-accent);"></div>
+    <h2 class="brionna-poem-title">Sweet God</h2>
+    <div class="brionna-body"><span class="br-red">I drink what kills me because death feels honest.</span>
+There's a silence between the swallow where I almost
+remember God, or something that hurt enough to be her.
+Maybe it's not death I want but the moment before it,
+the body remembering its origin,
+the mouth still wet with creation.
+She made me from the same salt
+she used to flood the world,
+and I keep mistaking her mercy for ruin.
+
+<span class="br-gold">Sometimes I think pain is her language,</span>
+and I was born fluent.
+<span class="br-gold">Sometimes I think I am her echo,</span>
+<span class="br-gold">still trying to return to her throat</span></div>
+    <div class="poem-author-block brionna-author" style="border-top:1px solid rgba(200,39,26,0.14); margin-top:28px; padding-top:18px; position:relative; z-index:2;">
+      <span class="author-name" style="color:rgba(245,240,232,0.52);">Brionna Warner</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/thequietstorme" target="_blank" style="color:rgba(200,39,26,0.38);"><svg class="si"><use href="#ig"/></svg>@thequietstorme</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 12 — Junk Draw · Z S ════ -->
+<article class="zs-page">
+  <div class="zs-left">
+    <div class="zs-ghost" style="top:-30px; left:-20px;">12</div>
+    <div style="position:relative; z-index:2;">
+      <p class="poem-meta">poem 12 </p>
+      <div class="poem-rule" style="background:rgba(176,176,204,0.28);"></div>
+      <div class="zs-big-num">junk</div>
+      <h2 class="zs-title">draw</h2>
+    </div>
+    <div class="poem-author-block zs-author" style="margin-top:auto; border-top:1px solid rgba(176,176,204,0.07); padding-top:16px; position:relative; z-index:2;">
+      <span class="author-name" style="color:rgba(224,224,240,0.48);">Z S</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/userunknown___999" target="_blank" style="color:rgba(176,176,204,0.28);"><svg class="si"><use href="#ig"/></svg>@userunknown___999</a>
+      </div>
+    </div>
+  </div>
+  <div class="zs-right">
+    <div class="zs-body">You know that junk drawer —
+every home has at least one.
+Some maybe more, maybe three or four.
+But have you ever thought:
+what if that junk drawer was a person?
+What would they be like?
+Who would they be?
+If I'm honest,
+That junk drawer is me.
+That's my mind, my body, my soul.
+
+I don't choose to be chaotic —
+a drawer full of mess with no place to go.
+People don't need me day to day,
+but for some reason they can't quite let go.
+They can't throw me away, not yet.
+
+So I sit there
+with the rest of the junk,
+waiting for my time — good or bad.
+Forever wondering
+if I'll be used and abused again,
+or just left to rot.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 13 — Lost Angels, Lost Demons · Z S ════ -->
+<article class="zs-page">
+  <div class="zs-left">
+    <div class="zs-ghost" style="top:-30px; left:-20px;">13</div>
+    <div style="position:relative; z-index:2;">
+      <p class="poem-meta">poem 13 </p>
+      <div class="poem-rule" style="background:rgba(176,176,204,0.28);"></div>
+      <div class="zs-big-num">lost</div>
+      <h2 class="zs-title">angels,<br>lost demons</h2>
+    </div>
+    <div class="poem-author-block zs-author" style="margin-top:auto; border-top:1px solid rgba(176,176,204,0.07); padding-top:16px; position:relative; z-index:2;">
+      <span class="author-name" style="color:rgba(224,224,240,0.48);">Z S</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/userunknown___999" target="_blank" style="color:rgba(176,176,204,0.28);"><svg class="si"><use href="#ig"/></svg>@userunknown___999</a>
+      </div>
+    </div>
+  </div>
+  <div class="zs-right">
+    <div class="zs-body">They say suicidal people are lost angels—
+wings tired, homesick for heaven.
+They say they drift, soft and holy,
+longing for luminous doors.
+
+But what if they're not angels at all?
+What if they're crooked, weary demons,
+maps torn,
+trying to find the same dark place—
+wanting, always,
+to go back home to hell?</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 14 — Ever Since a Kid · Z S ════ -->
+<article class="zs-page">
+  <div class="zs-left">
+    <div class="zs-ghost" style="top:-30px; left:-20px;">14</div>
+    <div style="position:relative; z-index:2;">
+      <p class="poem-meta">poem 14</p>
+      <div class="poem-rule" style="background:rgba(176,176,204,0.28);"></div>
+      <div class="zs-big-num" style="font-size:clamp(60px,10vw,130px);">ever since</div>
+      <h2 class="zs-title">a kid</h2>
+    </div>
+    <div class="poem-author-block zs-author" style="margin-top:auto; border-top:1px solid rgba(176,176,204,0.07); padding-top:16px; position:relative; z-index:2;">
+      <span class="author-name" style="color:rgba(224,224,240,0.48);">Z S</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/userunknown___999" target="_blank" style="color:rgba(176,176,204,0.28);"><svg class="si"><use href="#ig"/></svg>@userunknown___999</a>
+      </div>
+    </div>
+  </div>
+  <div class="zs-right">
+    <div class="zs-body">I don't know if it's ADHD or BPD,
+Or maybe even Autism or PTSD.
+I just know I've been fucked up —
+Ever since a kid.
+
+I know I just ain't quite been right.
+I said I didn't know what it was — And I didn't,
+For over half my life.
+But now?
+Now they tell me I've got all four.
+With depression
+And anxiety
+Mixed in.
+
+I always knew I weren't right,
+Ever since a kid.
+Now they know —
+And all they do is prescribe pills.
+"Take this one,"
+"Wash it down,"
+"And you'll be fine,"
+They say.
+
+I take that much medication,
+I rattle.
+The worst part is — They don't help.
+The demons, The illnesses,
+Are all still there. Just as alive as ever.
+
+I've been sick for more than half my life —
+Probably all my life.
+I know I've never been right.
+I've always been fucked up,
+Ever since a kid.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+
+
+<!-- ════ POEM 15 — Open Book · JA DAVIS ════ -->
+<article class="jadavis-page">
+  <div class="jadavis-col">
+    <p class="jadavis-kicker">poem 15</p>
+    <div class="jadavis-dateline">as flowers · issue 01 · 1st-time blooms</div>
+    <h2 class="jadavis-masthead">Open<br>Book</h2>
+    <div class="jadavis-rule"></div>
+    <div class="jadavis-pull">"Ask me what you will, I said trembling. I'm an open book."</div>
+    <div class="jadavis-rule"></div>
+    <div class="poem-author-block jadavis-author" style="margin-top:auto;">
+      <span class="author-name" style="color:var(--mid); font-size:15px;">JA Davis</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/theprisonpoet" target="_blank" style="color:var(--grey);"><svg class="si"><use href="#ig"/></svg>@theprisonpoet</a>
+      </div>
+    </div>
+  </div>
+  <div class="jadavis-gutter"></div>
+  <div class="jadavis-col" style="justify-content:center;">
+    <div class="jadavis-body">We were like turquoise
+threading its way through stone,
+pushing all our strength into beauty,
+into places it would never be seen.
+
+Our confessions merged like prayers in the dark.
+We passed fear back and forth
+between each other's hands
+until our hearts discandied
+and grew ripe, and inside the fruit was a seed.
+
+I knew then I loved him
+like I never had anyone else before,
+which in the manner of myth
+also signaled dying.
+
+I'd become the volcano,
+spewing everything without really
+meaning to because I couldn't stop
+once begun, and there fell as ash
+a certain comprehension with the fire still in it:
+
+I have never been so ugly or in need of connection.
+
+Ask me what you will, I said trembling.
+I'm an open book.
+
+He took my hands in his and said,
+But that's the worst kind. It means
+there's nothing to protect.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ POEM 16 — My Reach Makes Love (Reprise) · JA DAVIS ════ -->
+<article class="jadavis-page">
+  <div class="jadavis-col">
+    <p class="jadavis-kicker">poem 16</p>
+    <div class="jadavis-dateline">as flowers · issue 01 · 1st-time blooms</div>
+    <h2 class="jadavis-masthead">My<br>Reach<br>Makes<br>Love</h2>
+    <p style="font-family:'Space Mono',monospace; font-size:7.5px; color:var(--grey); letter-spacing:0.18em; margin:-6px 0 14px;">(REPRISE)</p>
+    <div class="jadavis-rule"></div>
+    <div class="jadavis-pull">"A poet is tasked with creating a sense of the actual."</div>
+    <div class="jadavis-rule"></div>
+    <div class="poem-author-block jadavis-author" style="margin-top:auto;">
+      <span class="author-name" style="color:var(--mid); font-size:15px;">JA Davis</span>
+      <div class="author-socials">
+        <a class="social" href="https://instagram.com/theprisonpoet" target="_blank" style="color:var(--grey);"><svg class="si"><use href="#ig"/></svg>@theprisonpoet</a>
+      </div>
+    </div>
+  </div>
+  <div class="jadavis-gutter"></div>
+  <div class="jadavis-col" style="justify-content:flex-start; overflow-y:auto;">
+    <div class="jadavis-body">When Jackson asked me
+why both voices in my poem sound the same
+I thought about it for months, even after he left.
+
+Eventually, I realized I was a child
+and childish aspirations had entered my writing.
+
+I had tried turning a monologue
+into a dialogue as though I could be soothed
+by the sound of my own voice split into factions.
+
+How foolish I'd been, advancing both the question
+and the answer. I called, then replied. I begged,
+then gave generously, all so that I would not
+
+have to consider whether something between us
+had died. Not at a span of hundreds of miles,
+but shoulder to shoulder,
+
+in the evenings when silence pooled in the cell
+like the chill of autumn, when he touched me
+passionlessly and never without convincing on my part.
+
+That is the solicitude of a clever mind:
+not knowing if even our best moments
+were contrived, and if they had been,
+was all I loved nothing more than a selfish projection?
+
+A poet is tasked with creating a sense of the actual,
+and actually he never took seriously what I wrote to him.
+
+Actually, he cried the night
+before I left, eating my ass for the first time,
+and I could feel the tears running down my legs.
+
+Actually, he pushed me away long before
+any distance intervened because his mother made him
+afraid of loss and a woman made him afraid of insufficiency.
+
+He had the ethos of a soldier
+taking orders from fear, turning against the forces
+of the mind that cried out to be vulnerable.
+
+Really, there are too many versions of the story I could tell
+but all of them can be summed up like this:
+
+Whenever I left, he followed.
+If I fled, he chased, but when he caught up to me
+and again had me beside him
+he gave little and asked for nothing
+as though to avoid leaving an impression.
+
+I know you're unhappy, he said.
+Then strode away growing the distance
+which binds us together.
+
+The poem, like life, was not as I intended.
+It was an allegory of the mind
+in the midst of manufacture, proof of my tendency
+to take control of a narrative.
+
+But unlike the poem,
+endings in life aren't certain,
+
+though perhaps nothing ever is
+until it reaches the end,
+
+except of course that no matter what,
+everything ends,
+
+regardless of whether
+we're resisting or ready.</div>
+  </div>
+</article>
+
+<div class="section-divider"></div>
+
+<!-- ════ CONTRIBUTORS ════ -->
+<section class="contrib-section">
+  <p class="contrib-label">contributors — issue 01</p>
+  <div class="contrib-grid">
+    <div class="contrib-item">
+      <div class="contrib-name">Yuu Ikeda</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/yuunnnn77" target="_blank"><svg class="si"><use href="#ig"/></svg>@yuunnnn77</a>
+        <a class="social" href="https://x.com/yuunnnn77" target="_blank"><svg class="si"><use href="#x"/></svg>@yuunnnn77</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Linda M. Crate</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/authorlindamcrate" target="_blank"><svg class="si"><use href="#ig"/></svg>@authorlindamcrate</a>
+        <a class="social" href="https://x.com/thysilverdoe" target="_blank"><svg class="si"><use href="#x"/></svg>@thysilverdoe</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Swayam</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/swayam_words_" target="_blank"><svg class="si"><use href="#ig"/></svg>@swayam_words_</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Bergen</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/poetryinplaid_" target="_blank"><svg class="si"><use href="#ig"/></svg>@poetryinplaid_</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Smitha T (Aarohi)</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/poems_by_aarohi" target="_blank"><svg class="si"><use href="#ig"/></svg>@poems_by_aarohi</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Courtney Louise</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/hersoftspokensoul" target="_blank"><svg class="si"><use href="#ig"/></svg>@hersoftspokensoul</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Brionna Warner</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/thequietstorme" target="_blank"><svg class="si"><use href="#ig"/></svg>@thequietstorme</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Nirob Dhar</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://www.instagram.com/__ni_r/" target="_blank" style="color:rgba(255,255,255,0.25); font-family:'Space Mono',monospace; font-size:9px;"><svg class="si"><use href="#ig"/></svg>@__ni_r</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">JA Davis</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/theprisonpoet" target="_blank"><svg class="si"><use href="#ig"/></svg>@theprisonpoet</a>
+      </div>
+    </div>
+    <div class="contrib-item">
+      <div class="contrib-name">Z S</div>
+      <div class="contrib-handles">
+        <a class="social" href="https://instagram.com/userunknown___999" target="_blank"><svg class="si"><use href="#ig"/></svg>@userunknown___999</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ COLOPHON ════ -->
+<footer class="colophon">
+  <div class="colophon-title">as flowers — issue 01</div>
+  <div class="colophon-meta">
+    eic ashikur ·
+    <a class="social" href="https://instagram.com/a5hikur" target="_blank"><svg class="si"><use href="#ig"/></svg>@a5hikur</a> ·
+    <a class="social" href="https://x.com/ashikurraxman" target="_blank"><svg class="si"><use href="#x"/></svg>@ashikurraxman</a><br>
+    <a class="social" href="https://instagram.com/asflowersmagazine" target="_blank"><svg class="si"><use href="#ig"/></svg>@asflowersmagazine</a> ·
+    <a class="social" href="https://x.com/asflowersmag" target="_blank"><svg class="si"><use href="#x"/></svg>@asflowersmag</a><br>
+    all rights reserved · 2026
+  </div>
+</footer>
+
+</body>
+</html>
